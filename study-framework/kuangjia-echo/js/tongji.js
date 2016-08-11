@@ -1,0 +1,1 @@
+var _hmt=_hmt||[];(function(){var hm=document.createElement("script");hm.src="//hm.baidu.com/hm.js?f19a012b598b6b06712637ec47cb7ec9";var s=document.getElementsByTagName("script")[0];s.parentNode.insertBefore(hm,s)})();

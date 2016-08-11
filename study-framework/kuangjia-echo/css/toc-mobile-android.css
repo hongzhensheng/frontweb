@@ -1,0 +1,1007 @@
+/*-------global---------*/
+
+.page .contain img {
+	position: absolute;
+}
+
+.page {
+	background: #90D0CB;
+}
+
+.decoration {
+	position: absolute;
+	text-indent: -9999px;
+}
+
+.bottom-t {
+	position: absolute;
+	width: 100%;
+	text-align: center;
+	color: #0F9568;
+	font-size: 0.7rem;
+	bottom: 1.2rem;
+	font-weight: 500;
+	font-family: "微软雅黑";
+}
+
+/*--------page1---------*/
+
+.page1 .page1-title-bg {
+	width: 14.8em;
+	left: 0.6em;
+	top: 1.4em;
+}
+
+.page1 .page1-plane {
+	width: 7.0em;
+	left: 5.6em;
+	top: 1.6em;
+}
+
+.page1 .page1-title {
+	width: 12.0em;
+	left: 2.0em;
+	top: 3.3em;
+}
+
+.page1 .page1-title-text {
+	position: absolute;
+	box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+	padding: 0.25em 0.5em;
+	background: #fff;
+	border: 1px dashed #F9CB54;
+	color: #129669;
+	border-radius: 2px;
+	-moz-border-radius: 2px;
+	-webkit-border-radius: 2px;
+	width: 10.5em;
+	left: 2.75em;
+	top: 7.8em;
+}
+
+.page1 .page1-title-text h2 {
+	font-size: 0.5em;
+	font-family: "微软雅黑";
+	letter-spacing: 0px;
+}
+
+.page1 .page1-sun {
+	width: 1.2em;
+	left: 9.4em;
+	top: 10.5em;
+}
+
+.page1 .page1-cartoon {
+	width: 3.5em;
+	left: 1.7em;
+	top: 11.1em;
+}
+
+.page1 .page1-map {
+	width: 13.0em;
+	left: 1.5em;
+	top: 11.5em;
+}
+
+.page1-start .page1-title-bg {
+	-webkit-animation: scaleRotateIn 1.8s 0.3s alternate backwards;
+	-moz-animation: scaleRotateIn 1.8s 0.3s alternate backwards;
+	-ms-animation: scaleRotateIn 1.8s 0.3s alternate backwards;
+	animation: scaleRotateIn 1.8s 0.3s alternate backwards;
+}
+
+.page1-start .page1-title,
+.page1-start .page1-title-text,
+.page1-start .page1-map {
+	-webkit-animation: bounceInLeft 1.8s 0.8s alternate backwards;
+	-moz-animation: bounceInLeft 1.8s 0.8s alternate backwards;
+	-ms-animation: bounceInLeft 1.8s 0.8s alternate backwards;
+	animation: bounceInLeft 1.8s 0.8s alternate backwards;
+}
+
+.page1-start .page1-title-text {
+	animation-delay: 1.0s;
+	-ms-animation-delay: 1.0s;
+	-moz-animation-delay: 1.0s;
+	-webkit-animation-delay: 1.0s;
+}
+
+.page1-start .page1-plane {
+	-webkit-animation: jumpInToRight 1.8s 1.3s alternate backwards;
+	-moz-animation: jumpInToRight 1.8s 1.3s alternate backwards;
+	-ms-animation: jumpInToRight 1.8s 1.3s alternate backwards;
+	animation: jumpInToRight 1.8s 1.3s alternate backwards;
+}
+
+.page1-start .page1-map {
+	animation-delay: 1.8s;
+	-ms-animation-delay: 1.8s;
+	-moz-animation-delay: 1.8s;
+	-webkit-animation-delay: 1.8s;
+}
+
+.page1-start .page1-cartoon {
+	-webkit-animation: bounceInRight 1.8s 2.3s alternate backwards;
+	-moz-animation: bounceInRight 1.8s 2.3s alternate backwards;
+	-ms-animation: bounceInRight 1.8s 2.3s alternate backwards;
+	animation: bounceInRight 1.8s 2.3s alternate backwards;
+}
+
+.page1-start .page1-sun {
+	-webkit-animation: scale 1.5s 2.5s alternate backwards;
+	-moz-animation: scale 1.5s 2.5s alternate backwards;
+	-ms-animation: scale 1.5s 2.5s alternate backwards;
+	animation: scale 1.5s 2.5s alternate backwards;
+}
+
+
+/**----------page2-----------*/
+
+.page2 .page2-role {
+	width: 80.00%;
+	left: 10%;
+	top: 5.0%;
+}
+
+.page2 .page2-androidcartoon1,
+.page2 .page2-androidcartoon2 {
+	width: 3.9em;
+	left: 0.25em;
+	top: 41.4%;
+	z-index: 9;
+}
+
+.page2 .page2-androidcartoon2 {
+	top: 67.167%;
+}
+
+.page2 .page2-box {
+	position: absolute;
+	height: 6.0rem;
+	z-index: 10;
+}
+
+.page2 .box1,
+.page2 .box2,
+.page2 .box3,
+.page2 .box4 {
+	width: 5.5em;
+	left: 3.5em;
+	top: 37.583%;
+}
+
+.page2 .page2-box h1,
+.page2 .page2-box h2 {
+	position: absolute;
+	color: #F5520D;
+	width: 100%;
+	text-align: center;
+	font-size: 0.6rem;
+	font-weight: bold;
+	top: 2.0rem;
+	font-family: "微软雅黑";
+}
+
+.page2 .page2-box h2 {
+	font-weight: 600;
+	color: #07996A;
+	top: 3.1rem;
+}
+
+.page2 .box1-bg {
+	width: 100%;
+}
+
+.page2 .box2,
+.page2 .box4 {
+	left: 9.5rem;
+}
+
+.page2 .box3,
+.page2 .box4 {
+	top: 64.67%;
+}
+
+.page2-start .page2-role,
+.page2-start .box1,
+.page2-start .box2,
+.page2-start .box3,
+.page2-start .box4 {
+	-webkit-animation: slideInUp2 1.8s 0.3s alternate backwards;
+	-moz-animation: slideInUp2 1.8s 0.3s alternate backwards;
+	-ms-animation: slideInUp2 1.8s 0.3s alternate backwards;
+	animation: slideInUp2 1.8s 0.3s alternate backwards;
+}
+
+.page2-start .box1 {
+	animation-delay: 0.8s;
+	-ms-animation-delay: 0.8s;
+	-moz-animation-delay: 0.8s;
+	-webkit-animation-delay: 0.8s;
+}
+
+.page2-start .box2 {
+	animation-delay: 1.3s;
+	-ms-animation-delay: 1.3s;
+	-moz-animation-delay: 1.3s;
+	-webkit-animation-delay: 1.3s;
+}
+
+.page2-start .box3 {
+	animation-delay: 1.8s;
+	-ms-animation-delay: 1.8s;
+	-moz-animation-delay: 1.8s;
+	-webkit-animation-delay: 1.8s;
+}
+
+.page2-start .box4 {
+	animation-delay: 2.3s;
+	-ms-animation-delay: 2.3s;
+	-moz-animation-delay: 2.3s;
+	-webkit-animation-delay: 2.3s;
+}
+
+.page2-start .page2-androidcartoon1,
+.page2-start .page2-androidcartoon2 {
+	-webkit-animation: inToRight2 1.5s 2.8s alternate backwards;
+	-moz-animation: inToRight2 1.5s 2.8s alternate backwards;
+	-ms-animation: inToRight2 1.5s 2.8s alternate backwards;
+	animation: inToRight2 1.5s 2.8s alternate backwards;
+}
+
+.page2-start .page2-androidcartoon2 {
+	animation-delay: 3.3s;
+	-ms-animation-delay: 3.3s;
+	-moz-animation-delay: 3.3s;
+	-webkit-animation-delay: 3.3s;
+}
+
+
+/**---------page3--------*/
+
+.page3 .page3-title {
+	width: 12.0rem;
+	left: 2.0rem;
+	top: 5.917%;
+}
+
+.page3 .page3-andr-cartoon1,
+.page3 .page3-andr-cartoon2 {
+	width: 2.3rem;
+	left: 1.8rem;
+	top: 36.5%;
+}
+
+.page3 .page3-andr-cartoon2 {
+	top: 62.083%;
+}
+
+.page3 .page3-con-box {}
+
+.page3 .page3-con-box .page3-line1 {
+	position: absolute;
+	width: 13.0rem;
+	height: 0.15rem;
+	background: #fff;
+	border-radius: 2px;
+	-moz-border-radius: 2px;
+	-webkit-border-radius: 2px;
+	left: 2.25rem;
+	top: 45.6%;
+}
+
+.page3 .page3-con-box .page3-circle-box {
+	position: absolute;
+	width: 13.0rem;
+	height: 0.45rem;
+	left: 2.25rem;
+	top: 45%;
+}
+
+.page3 .page3-con-box .circle {
+	position: absolute;
+	width: 0.40rem;
+	height: 0.40rem;
+	background: #fff;
+	border-radius: 50%;
+	-moz-border-radius: 50%;
+	-webkit-border-radius: 50%;
+}
+
+.circle1 {
+	left: 2.2rem;
+}
+
+.circle2 {
+	left: 3.8rem;
+}
+
+.circle3 {
+	left: 5.4rem;
+}
+
+.circle4 {
+	left: 7.1rem;
+}
+
+.circle5 {
+	left: 8.7rem;
+}
+
+.circle6 {
+	left: 10.4rem;
+}
+
+.page3 .page3-con-box .page3-bell-box {
+	position: absolute;
+	width: 13.0rem;
+	left: 2.25rem;
+	top: 47.5%;
+}
+
+.page3 .bell-af,
+.page3 .bell-at {
+	width: 1.6rem;
+	left: 1.5rem;
+}
+
+.page3 .bell-ab,
+.page3 .bell-nav {
+	width: 1.5rem;
+	left: 3.2rem;
+}
+
+.page3 .bell-as,
+.page3 .bell-lv {
+	width: 1.4rem;
+	left: 4.9rem;
+}
+
+.page3 .bell-ah,
+.page3 .bell-bf {
+	width: 1.5rem;
+	left: 6.6rem;
+}
+
+.page3 .bell-json,
+.page3 .bell-face {
+	width: 1.4rem;
+	left: 8.2rem;
+}
+
+.page3 .bell-mid,
+.page3 .bell-high {
+	width: 2.0rem;
+	left: 9.9rem;
+}
+
+.page3-con-box.page3-con-box2 .page3-line1 {
+	top: 71.56%;
+}
+
+.page3-con-box.page3-con-box2 .page3-circle-box {
+	top: 71.0%;
+}
+
+.page3-con-box.page3-con-box2 .page3-bell-box {
+	top: 73.5%;
+}
+
+.page3-start .page3-title {
+	-webkit-animation: slideInUp2 2s 0.2s alternate backwards;
+	-moz-animation: slideInUp2 2s 0.2s alternate backwards;
+	-ms-animation: slideInUp2 2s 0.2s alternate backwards;
+	animation: slideInUp2 2s 0.2s alternate backwards;
+}
+
+.page3-start .bell {
+	-webkit-animation: rotateTopCenter 1.5s 0.2s alternate infinite backwards;
+	-moz-animation: rotateTopCenter 1.5s 0.2s alternate infinite backwards;
+	-ms-animation: rotateTopCenter 1.5s 0.2s alternate infinite backwards;
+	animation: rotateTopCenter 1.5s 0.2s alternate infinite backwards;
+}
+
+.page3-start .page3-con-box2 .bell {
+	animation-delay: 0.95s;
+	-ms-animation-delay: 0.95s;
+	-moz-animation-delay: 0.95s;
+	-webkit-animation-delay: 0.95s;
+}
+
+.page3-start .page3-andr-cartoon1,
+.page3-start .page3-andr-cartoon2 {
+	-webkit-animation: wobble 2.2s 0.3s alternate infinite backwards;
+	-moz-animation: wobble 2.2s 0.3s alternate infinite backwards;
+	-ms-animation: wobble 2.2s 0.3s alternate infinite backwards;
+	animation: wobble 2.2s 0.3s alternate infinite backwards;
+}
+
+.page3-start .page3-andr-cartoon2 {
+	animation-delay: 0.8s;
+	-ms-animation-delay: 0.8s;
+	-moz-animation-delay: 0.8s;
+	-webkit-animation-delay: 0.8s;
+}
+
+.xx-page3-start .circle {
+	-webkit-animation: bounceInRight 1.0s 0.2s alternate backwards;
+	-moz-animation: bounceInRight 1.0s 0.2s alternate backwards;
+	-ms-animation: bounceInRight 1.0s 0.2s alternate backwards;
+	animation: bounceInRight 1.0s 0.2s alternate backwards;
+}
+
+.xx-page3-start .page3-con-box1 .circle1 {
+	animation-delay: 0.8s;
+	-ms-animation-delay: 0.8s;
+	-moz-animation-delay: 0.8s;
+	-webkit-animation-delay: 0.8s;
+}
+
+.xx-page3-start .page3-con-box1 .circle2 {
+	animation-delay: 1.0s;
+	-ms-animation-delay: 1.0s;
+	-moz-animation-delay: 1.0s;
+	-webkit-animation-delay: 1.0s;
+}
+
+.xx-page3-start .page3-con-box1 .circle3 {
+	animation-delay: 1.2s;
+	-ms-animation-delay: 1.2s;
+	-moz-animation-delay: 1.2s;
+	-webkit-animation-delay: 1.2s;
+}
+
+.xx-page3-start .page3-con-box1 .circle4 {
+	animation-delay: 1.4s;
+	-ms-animation-delay: 1.4s;
+	-moz-animation-delay: 1.4s;
+	-webkit-animation-delay: 1.4s;
+}
+
+.xx-page3-start .page3-con-box1 .circle5 {
+	animation-delay: 1.6s;
+	-ms-animation-delay: 1.6s;
+	-moz-animation-delay: 1.6s;
+	-webkit-animation-delay: 1.6s;
+}
+
+.xx-page3-start .page3-con-box1 .circle6 {
+	animation-delay: 1.8s;
+	-ms-animation-delay: 1.8s;
+	-moz-animation-delay: 1.8s;
+	-webkit-animation-delay: 1.8s;
+}
+
+
+/**----------page4-5 ------------*/
+
+.page-strategy {
+	width: 11.0rem;
+	left: 2.5rem;
+	top: 3.0%;
+}
+
+.page-con-bg {
+	width: 11.0rem;
+	height: 13.0rem;
+	left: 2.5rem;
+	top: 30.5%;
+}
+
+.page-con-box {
+	position: absolute;
+	width: 11.0rem;
+	height: 10.0rem;
+	left: 2.5rem;
+	top: 43%;
+}
+
+.page-con-box h1,
+.page-con-box h2 {
+	position: absolute;
+	width: 100%;
+	color: #E1570A;
+	text-align: center;
+	font-size: 0.8rem;
+	font-family: "微软雅黑";
+	font-weight: bold;
+}
+
+.page-con-box h2 {
+	text-align: left;
+	font-size: 0.5rem;
+	line-height: 0.8rem;
+	top: 1.5rem;
+	color: #6E3C11;
+}
+
+.page-task,
+.page-gettask {
+	width: 3.8rem;
+	left: 1.3rem;
+	top: 7.5rem;
+}
+
+.page4 .page-con-box h2 {
+	padding-left: 3.6rem;
+}
+
+.page4 .page-gettask {
+	left: 5.8rem;
+}
+
+.page5 .page-gettask {
+	width: 4.2rem;
+	left: 3.4rem;
+	top: 8.4rem;
+}
+
+.page5 .page-con-bg {
+	width: 11.5rem;
+	left: 2.25rem;
+}
+
+.page5 .page-con-box h2 {
+	position: static;
+	padding-left: 0.9rem;
+	padding-top: 0.1rem;
+	color: #9A2720;
+}
+
+.page5 .page-con-box h2:nth-of-type(1) {
+	margin-top: 1.2rem;
+}
+
+.page5 .page-con-box h2 .h2-con {
+	color: #733D11;
+}
+
+.page4-start .page-strategy,
+.page5-start .page-strategy {
+	-webkit-animation: slideInUp2 2s 0.2s alternate backwards;
+	-moz-animation: slideInUp2 2s 0.2s alternate backwards;
+	-ms-animation: slideInUp2 2s 0.2s alternate backwards;
+	animation: slideInUp2 2s 0.2s alternate backwards;
+}
+
+.page4-start .page-con-bg,
+.page4-start .page-con-box,
+.page5-start .page-con-bg,
+.page5-start .page-con-box {
+	-webkit-animation: slideInDown2 2s 0.8s alternate backwards;
+	-moz-animation: slideInDown2 2s 0.8s alternate backwards;
+	-ms-animation: slideInDown2 2s 0.8s alternate backwards;
+	animation: slideInDown2 2s 0.8s alternate backwards;
+}
+
+.page4-start .bottom-t,
+.page5-start .bottom-t {
+	-webkit-animation: slideInDown2 2s 1.5s alternate backwards;
+	-moz-animation: slideInDown2 2s 1.5s alternate backwards;
+	-ms-animation: slideInDown2 2s 1.5s alternate backwards;
+	animation: slideInDown2 2s 1.5s alternate backwards;
+}
+
+
+/**---------page6-8 ----------*/
+
+.page .page-t-bg {
+	width: 12.4rem;
+	left: 1.8rem;
+	top: 1.2rem;
+	z-index: 10;
+}
+
+.page .page-t-tx {
+	width: 6.5rem;
+	left: 4.5rem;
+	top: 1.7rem;
+	z-index: 10;
+}
+
+.page .page-t-nav {
+	top: 8.1rem;
+	width: 16.0rem;
+	z-index: 10;
+}
+
+.page .page-t-wm {
+	width: 3.2rem;
+	left: 8.7rem;
+	top: 4.7rem;
+	z-index: 11;
+}
+
+.page-t-detail-box {
+	position: absolute;
+	box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+	border: 1px solid #90B704;
+	border-radius: 0.2rem;
+	-moz-border-radius: 0.2rem;
+	-webkit-border-radius: 0.2rem;
+	background: #fff;
+	z-index: 9;
+	width: 12.3rem;
+	height: 12.0rem;
+	top: 9.7rem;
+	left: 1.85rem;
+}
+
+.page-t-detail-box h1,
+.page-t-detail-box h2 {
+	width: 100%;
+	color: #78351A;
+	font-size: 0.8rem;
+	font-family: "微软雅黑";
+	font-weight: bold;
+	text-align: center;
+	box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+}
+
+.page-t-detail-box h1 {
+	margin-top: 0.8rem;
+}
+
+.page-t-detail-box h2 {
+	color: #73491F;
+	font-weight: 600;
+	text-align: left;
+	font-size: 0.5rem;
+	padding-left: 2.2rem;
+	padding-top: 0.3rem;
+}
+
+.page-t-detail-box h2 .t-detail-con {
+	font-weight: 400;
+	font-size: 0.4rem;
+}
+
+.page-t-detail-box h2 .t-detail-star {
+	color: #F45900;
+	font-size: 0.7rem;
+}
+
+.page-t-start .page-t-tx,
+.page-t-start .page-t-nav {
+	-webkit-animation: slideInUp2 2s 0.2s alternate backwards;
+	-moz-animation: slideInUp2 2s 0.2s alternate backwards;
+	-ms-animation: slideInUp2 2s 0.2s alternate backwards;
+	animation: slideInUp2 2s 0.2s alternate backwards;
+}
+
+.page-t-start .page-t-detail-box {
+	-webkit-animation: slideInDown2 1.3s 0.2s alternate backwards;
+	-moz-animation: slideInDown2 1.3s 0.2s alternate backwards;
+	-ms-animation: slideInDown2 1.3s 0.2s alternate backwards;
+	animation: slideInDown2 1.3s 0.2s alternate backwards;
+}
+
+.page-t-start .page-t-detail-box h1,
+.page-t-start .page-t-detail-box h2 {
+	-webkit-animation: slideInDown2 1.3s 0.5s alternate backwards;
+	-moz-animation: slideInDown2 1.3s 0.5s alternate backwards;
+	-ms-animation: slideInDown2 1.3s 0.5s alternate backwards;
+	animation: slideInDown2 1.3s 0.5s alternate backwards;
+}
+
+.page-t-start .page-t-wm {
+	-webkit-animation: scale5To1 0.8s 1.5s alternate backwards;
+	-moz-animation: scale5To1 0.8s 1.5s alternate backwards;
+	-ms-animation: scale5To1 0.8s 1.5s alternate backwards;
+	animation: scale5To1 0.8s 1.5s alternate backwards;
+}
+
+
+/**--------page9-12 ------------*/
+
+.page .page-s-box {
+	position: absolute;
+	box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+	width: 12.4rem;
+	height: 21.3rem;
+	left: 1.8rem;
+	top: 1.2rem;
+	border-radius: 0.2rem;
+	-moz-border-radius: 0.2rem;
+	-webkit-border-radius: 0.2rem;
+	background: #fff;
+}
+
+.page .page-s-box .page-s-tie {
+	width: 2.2rem;
+	left: 9.9rem;
+	top: 0;
+}
+
+.page .page-s-box .page-s-tx {
+	width: 6.5rem;
+	left: 3.0rem;
+	top: 0.5rem;
+}
+
+.page .page-s-box h1,
+.page .page-s-box h2,
+.page .page-s-box h3 {
+	position: absolute;
+	width: 100%;
+	text-align: center;
+	font-family: "微软雅黑";
+}
+
+.page .page-s-box h1 {
+	top: 10.8rem;
+	font-size: 0.8rem;
+	font-weight: bold;
+	color: #7E7E7E;
+	letter-spacing: 2px;
+}
+
+.page .page-s-box h2 {
+	text-align: left;
+	padding-left: 2.5rem;
+	top: 12.2rem;
+	font-size: 0.7rem;
+	font-weight: 400;
+	color: #7E7E7E;
+	letter-spacing: 2px;
+	line-height: 1.8rem;
+}
+
+.page .page-s-box h2 .page-s-salary {
+	position: absolute;
+	font-size: 1.8rem;
+	font-weight: bold;
+	color: #F45900;
+}
+
+.page .page-s-box h3 {
+	box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+	text-align: left;
+	top: 14.5rem;
+	font-size: 0.7rem;
+	padding: 0 1.5rem;
+	font-weight: bold;
+	line-height: 1.2rem;
+	color: #684F30;
+}
+
+.page .page-s-nav {
+	width: 16.0rem;
+	left: 0;
+	top: 8.8rem;
+}
+
+.page .page-s-tree {
+	width: 2.0rem;
+	left: 0.8rem;
+	top: 21.3rem;
+}
+
+.page-s-start .page-s-box .page-s-tx {
+	-webkit-animation: rollIn 2s 0.2s alternate backwards;
+	-moz-animation: rollIn 2s 0.2s alternate backwards;
+	-ms-animation: rollIn 2s 0.2s alternate backwards;
+	animation: rollIn 2s 0.2s alternate backwards;
+}
+
+.page-s-start .page-s-box h1,
+.page-s-start .page-s-box h2,
+.page-s-start .page-s-box h3,
+.page-s-start .page-s-nav {
+	-webkit-animation: slideInDown2 2s 0.8s alternate backwards;
+	-moz-animation: slideInDown2 2s 0.8s alternate backwards;
+	-ms-animation: slideInDown2 2s 0.8s alternate backwards;
+	animation: slideInDown2 2s 0.8s alternate backwards;
+}
+
+.page-s-start .page-s-box h1,
+.page-s-start .page-s-box h2,
+.page-s-start .page-s-box h3 {
+	animation-delay: 1.2s;
+	-ms-animation-delay: 1.2s;
+	-moz-animation-delay: 1.2s;
+	-webkit-animation-delay: 1.2s;
+}
+
+.page-s-start .page-s-tree {
+	-webkit-animation: wobble 2s 0.2s alternate infinite backwards;
+	-moz-animation: wobble 2s 0.2s alternate infinite backwards;
+	-ms-animation: wobble 2s 0.2s alternate infinite backwards;
+	animation: wobble 2s 0.2s alternate infinite backwards;
+}
+
+
+/*----------page13----------*/
+
+.page13 .page13-bg {
+	width: 12.2rem;
+	left: 1.9rem;
+	top: 0.9rem;
+}
+
+.page13 .page13-nav {
+	width: 16.0rem;
+	left: 0.0rem;
+	top: 1.7rem;
+}
+
+.page13 .page13-cartoon {
+	width: 2.6rem;
+	left: 1.0rem;
+	top: 5.6rem;
+	z-index: 10;
+}
+
+.page13 .page13-p1-box {
+	position: absolute;
+	width: 4.8rem;
+	height: 5.2rem;
+	left: 3.3rem;
+	top: 4.6rem;
+	z-index: 9;
+}
+
+.page13 .page13-p1-box img {
+	width: 100%;
+	z-index: 8;
+}
+
+.page13 .page13-p1-box h1 {
+	position: absolute;
+	z-index: 10;
+	box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+	padding: 1.7rem 0.9rem 0 0.9rem;
+	color: #179565;
+	font-size: 0.6rem;
+	font-family: "微软雅黑";
+	font-weight: 400;
+}
+
+.page13 .page13-p1-box.box2 {
+	left: 8.5rem;
+}
+
+.page13 .page13-p1-box.box2 h1 {
+	padding: 1.8rem 0.6rem 0 0.6rem;
+	font-size: 0.5rem;
+}
+
+.page13 .page13-code-box {
+	position: absolute;
+	width: 10.6rem;
+	height: 3.2rem;
+	left: 2.7rem;
+	top: 10.4rem;
+	background: #fff;
+}
+
+.page13 .page13-code-box .page13-code-bg {
+	width: 100%;
+}
+
+.page13 .page13-code-box .page13-code-btn {
+	width: 3.2rem;
+	left: -0.1rem;
+}
+
+.page13 .page13-code-box h1 {
+	position: absolute;
+	box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+	font-family: "微软雅黑";
+	width: 7.4rem;
+	color: #179565;
+	right: 0;
+	padding: 0.5rem 1.2rem 0 1.1rem;
+	font-size: 0.55rem;
+	font-weight: 400;
+}
+
+.page13 .page13-ask-box {
+	position: absolute;
+	border-radius: 0.2rem;
+	-moz-border-radius: 0.2rem;
+	-webkit-border-radius: 0.2rem;
+	background-color: #fff;
+	width: 10.7rem;
+	height: 3.2rem;
+	left: 2.7rem;
+	top: 14.5rem;
+}
+
+.page13 .page13-ask-box div {
+	position: absolute;
+	width: 96%;
+	height: 90%;
+	margin: 2%;
+	border: 1px dashed #179565;
+	box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+}
+
+.page13 .page13-ask-box h1 {
+	width: 100%;
+	box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+	display: inline-block;
+	font-family: "微软雅黑";
+	color: #179565;
+	font-weight: bold;
+	font-size: 0.55rem;
+	text-align: left;
+	padding: 0.4rem 1.2rem 0 1.2rem;
+}
+
+.page13 .page13-ask-btn {
+	width: 5.5rem;
+	left: 4.7rem;
+	top: 18.2rem;
+}
+
+.page13-start .page13-nav,
+.page13-start .page13-p1-box,
+.page13-start .page13-code-box,
+.page13-start .page13-ask-box {
+	-webkit-animation: slideInUp2 2s 0.2s alternate backwards;
+	-moz-animation: slideInUp2 2s 0.2s alternate backwards;
+	-ms-animation: slideInUp2 2s 0.2s alternate backwards;
+	animation: slideInUp2 2s 0.2s alternate backwards;
+}
+
+.page13-start .box1 {
+	animation-delay: 0.8s;
+	-ms-animation-delay: 0.8s;
+	-moz-animation-delay: 0.8s;
+	-webkit-animation-delay: 0.8s;
+}
+
+.page13-start .box2 {
+	animation-delay: 1.2s;
+	-ms-animation-delay: 1.2s;
+	-moz-animation-delay: 1.2s;
+	-webkit-animation-delay: 1.2s;
+}
+
+.page13-start .page13-code-box {
+	animation-delay: 1.6s;
+	-ms-animation-delay: 1.6s;
+	-moz-animation-delay: 1.6s;
+	-webkit-animation-delay: 1.6s;
+}
+
+.page13-start .page13-ask-box {
+	animation-delay: 2s;
+	-ms-animation-delay: 2s;
+	-moz-animation-delay: 2s;
+	-webkit-animation-delay: 2s;
+}
+
+.page13-start .page13-ask-btn,
+.page13-start .page13-cartoon {
+	-webkit-animation: scale 2s 1.8s alternate backwards;
+	-moz-animation: scale 2s 1.8s alternate backwards;
+	-ms-animation: scale 2s 1.8s alternate backwards;
+	animation: scale 2s 1.8s alternate backwards;
+}
+
+.page13-start .page13-ask-btn {
+	animation-delay: 2.5s;
+	-ms-animation-delay: 2.5s;
+	-moz-animation-delay: 2.5s;
+	-webkit-animation-delay: 2.5s;
+}

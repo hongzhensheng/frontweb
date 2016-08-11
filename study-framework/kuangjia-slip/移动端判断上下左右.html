@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+<title>Document</title>
+<style type="text/css">
+#div1{
+	height: 400px;
+	width: 400px;
+	background-color: #ccc;
+	font-size: 100px;
+}
+</style>
+<script type="text/javascript">
+window.onload=function (){
+
+
+	var div1=document.getElementById("div1");
+
+
+	//在手机上也支持click,click有延迟（300ms）
+
+	document.addEventListener("touchstart", function (event){
+		
+		var startX=event.touches[0].screenX;
+		var startY=event.touches[0].screenY;
+		document.addEventListener("touchmove",function (event){
+
+			var disX=event.touches[0].screenX-startX;
+			var disY=event.touches[0].screenY-startY;
+
+			if (disY>0&&disY>Math.abs(disX)){
+				//向下
+				div1.innerHTML="向下";
+			}else if(disY<0&&Math.abs(disY)>Math.abs(disX)){
+				//向上
+				div1.innerHTML="向上";
+			}else if (disX<0&&Math.abs(disX)>Math.abs(disY)){
+				//向左
+				div1.innerHTML="向左";
+			}else if (disX>0&&disX>Math.abs(disY)){
+				//向右
+				div1.innerHTML="向右";
+			}
+
+			event.preventDefault();
+		},false);
+	}, false);
+	 function change(){
+            $(".ul>li:eq(0)").animate({"z-index":"400","width":"74%","left":"97.58px","top":"220px"},500);
+            $(".ul>li:eq(1)").animate({"z-index":"296","width":"41%","left":"-210.1px","top":"245px"},500);
+            $(".ul>li:eq(2)").animate({"z-index":"129","width":"41%","left":"0","top":"57.2px"},500);
+            $(".ul>li:eq(3)").animate({"z-index":"129","width":"41%","left":"480px","top":"57.2px"},500);
+            $(".ul>li:eq(4)").animate({"z-index":"296","width":"41%","left":"687px","top":"245px"},500);
+         }
+}
+</script>
+</head>
+<body>
+<div id="div1"></div>
+</body>
+</html>

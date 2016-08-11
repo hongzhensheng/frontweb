@@ -1,0 +1,23 @@
+var myApp=angular.module('myApp',[]);
+myApp.controller('cssContr',['$scope',
+	function($scope){
+		$scope.color="red";
+		$scope.setColor=function(){
+			$scope.color='green';
+		}
+	}
+]);
+myApp.controller('cssContr2',['$scope',
+	function($scope){
+		$scope.isError=false;
+		$scope.isWarning=false;
+		$scope.setError=function(){
+			$scope.isError=true;
+			$scope.isWarning=false;
+		}
+		$scope.setWarning=function(){
+			$scope.isError=false;
+			$scope.isWarning=true;
+		}
+	}
+]);

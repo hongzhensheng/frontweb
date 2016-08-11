@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport" />
+		<meta name="format-detection" content="telephone=no" />
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+		<title>和大家说件事</title>
+		<meta name="viewport" content="initial-scale=1, width=device-width, maximum-scale=1, user-scalable=no">
+		<script type="text/javascript" src="js/min.slip.js"></script>
+		<style type="text/css">
+			body {
+				background-color: #f2f4f5;
+				margin: 0;
+				padding: 0;
+			}
+			
+			.page {
+				background-size: 100%;
+				background-repeat: no-repeat;
+				background-position: center center;
+				position: relative;
+			}
+			
+			.page-1 {
+				background-size: 50%;
+				background-position: center 30%;
+			}
+			
+			.orient .page {
+				background-size: contain;
+			}
+			
+			.orient .page-1 {
+				background-size: 40%;
+			}
+			
+			b {
+				position: absolute;
+				bottom: 15px;
+				left: 0;
+				right: 0;
+				height: 15px;
+				opacity: .4;
+				-webkit-transition: all .4s ease-in;
+				transition: all .4s ease-in;
+			}
+			
+			#wrap p {
+				font-size: 8em;
+				text-align: center;
+				margin: 0;
+				line-height: 4;
+				position: relative;
+			}
+			
+			b:before,
+			b:after {
+				content: "";
+				display: block;
+				background: #000;
+				width: 2px;
+				height: 14px;
+				position: absolute;
+				left: 50%;
+				bottom: 0;
+				-webkit-transform: rotate(-55deg);
+				-webkit-transform-origin: 100% 100%;
+			}
+			
+			b:after {
+				-webkit-transform: rotate(55deg);
+				-webkit-transform-origin: 0 100%;
+			}
+			
+			#music {
+				position: fixed;
+				top: 15px;
+				right: 15px;
+				width: 30px;
+				height: 30px;
+				background: olivedrab;
+			}
+		</style>
+	</head>
+
+	<body>
+		<div id="container">
+			<div id="wrap">
+				<div class="swipe-box" style="background-color: orchid;">
+					第1屏
+				</div>
+
+				<div class="swipe-box" style="background-color: green;">
+					第2屏
+				</div>
+
+				<div class="swipe-box" style="background-color: orange;">
+					第3屏
+				</div>
+
+				<div class="swipe-box" style="background-color: blue;">
+					第4屏
+				</div>
+			</div>
+		</div>
+		<div id="music">
+			<audio src="music/雪之梦.mp3" autoplay="autoplay"></audio>
+		</div>
+		<script type="text/javascript">
+			//禁止窗口的默认滑动
+			document.ontouchmove = function(e) {
+				e.preventDefault();
+			}
+			var isWindowOrient = (window.orientation || 0) === 0;
+			var wrap = document.getElementById('wrap');
+			var container = document.getElementById('container');
+			var pages = document.querySelectorAll('.swipe-box');
+			if (isWindowOrient) {
+				container.className = 'orient';
+			}
+			var total = 5;
+			var init = false;
+			var html = [];
+			var slip = Slip(container, 'y')
+				.webapp(pages)
+				.end(function() {
+					/*var orient = this.orient.join('');
+					if (orient.indexOf('up') > -1) {
+						if (!init) {
+							document.getElementsByTagName('b')[0].style.opacity = '0';
+							init = true;
+						}
+					}*/
+				});
+			slip.move(function() {
+				if (this.page == 3 && this.orient == 'up') {
+					//this.jump(0);
+					console.log("" + this.page + ";" + this.orient);
+					//alert("99999+");
+				}
+			});
+		</script>
+		<style type="text/css">
+			a[href*="tongji.baidu.com"] {
+				display: none;
+			}
+		</style>
+		<script type="text/javascript">
+			var _bdhmProtocol = (("https:" == document.location.protocol) ? " https://" : " http://");
+			document.write(unescape("%3Cscript src='" + _bdhmProtocol + "hm.baidu.com/h.js%3F0808592e3802a8d59e78e2e601623a22' type='text/javascript'%3E%3C/script%3E"));
+		</script>
+	</body>
+
+</html>

@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no,minimal-ui">
+		<title>App.js-demo2</title>
+
+		<link rel="stylesheet" href="../app.min.css" />
+	</head>
+
+	<body>
+		<div class="app-page" data-page="home">
+			<div class="app-topbar"></div>
+			<div class="app-content">
+				<p>index</p>
+				<p>详情可参考: http://www.peablog.com/project/appjs/#pages-controllers</p>
+				<div class="app-button">Jump to menu1</div>
+			</div>
+		</div>
+
+		<div class="app-page" data-page="menu1">
+			<div class="app-topbar">
+				<div class="app-button left" data-back="true" data-autotitle>Back</div>
+				<div class="app-title">Page title</div>
+				<div class="app-button btn-info right">User Info</div>
+			</div>
+			<div id="con-list1" class="app-content">
+				<div class="list-warp">
+					<ul class="app-list">
+						<li>content1</li>
+						<li>content2</li>
+						<li>content3</li>
+						<li>content4</li>
+						<li>content5</li>
+					</ul>
+					<hr/>
+					<ul class="app-list">
+						<li class="app-button">Button item</li>
+						<li>content1</li>
+						<li>content2</li>
+						<li>content3</li>
+						<li>content4</li>
+						<li>content5</li>
+						<li>content6</li>
+						<li>content7</li>
+					</ul>
+					<hr/>
+					<ul class="app-list">
+						<label>Animals</label>
+						<li>Dogs</li>
+						<li>Cats</li>
+						<label>Fruits</label>
+						<li>Apples</li>
+						<li>Oranges</li>
+					</ul>
+				</div>
+				<div class="load" style="background:url(img/ajax-loader.gif);"></div>
+			</div>
+		</div>
+
+		<div class="app-page" data-page="info">
+			<div class="app-topbar">
+				<div class="app-title">Info</div>
+			</div>
+			<div class="app-content">
+				<div class="app-button btn-back" data-back="true" data-autotitle>Back</div>
+				<div class="first-name"></div>
+				<div class="last-name"></div>
+				<input class="app-input">
+				<input type="search" class="app-input">
+				<!-- will have search icon -->
+				<textarea class="app-input"></textarea>
+				<div class="app-section">
+					<input class="app-input" placeholder="Subject">
+					<textarea class="app-input" placeholder="Message"></textarea>
+					<div class="app-button">Send</div>
+				</div>
+				<ul class="app-list app-section">
+					<li>Item 1</li>
+					<li>Item 2</li>
+					<li>Item 3</li>
+				</ul>
+				<div class="app-section">
+					<div class="app-button btn-send2">Send</div>
+				</div>
+				<div class="app-section">
+					<input class="app-input">
+					<div class="app-button btn-pictureView">PictureView</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="app-page dark-page" data-page="viewer">
+			<div class="app-topbar">
+				<div class="left app-button" data-back data-autotitle></div>
+				<div class="app-title">Viewer</div>
+			</div>
+			<div class="app-content"></div>
+		</div>
+	</body>
+
+</html>
+<script type="text/javascript" src="../app.min.js"></script>
+<script type="text/javascript" src="../jquery-1.7.2.js"></script>
+<script src="http://cdn.kik.com/photo-viewer/1/photo-viewer.js"></script>
+<script type="text/javascript">
+	App.setDefaultTransition('slide-right'); // 设置全局的进场动画
+	// 根据平台分别设置
+	App.setDefaultTransition({
+		ios: 'slide-right', // iOS
+		iosFallback: 'slide-right', // iOS <5
+		android: 'slide-right', // Android
+		androidFallback: 'slide-right', // Android < 4
+		fallback: 'slide-right' // non-iOS, non-Android
+	});
+	App.controller('home', function(page) {
+		console.log('controller!')
+		$(page).find('.app-button').on('click', function() {
+			console.log('button was clicked!');
+			App.infiniteScroll($('#con-list1 .list-warp'), function(next) {
+				var list = [];
+				for (var i = 0; i < 20; i++) {
+					var li = $('<li>content' + i + '</li>');
+					list.push(li);
+				}
+				next(list);
+			});
+			App.infiniteScroll($('#con-list1 .list-warp'), {
+				loading: $('.load')
+			}, function(next) {
+				next([1, 2, 3]);
+			});
+			App.load('menu1');
+		});
+	});
+	App.controller('menu1', function(page) {
+		//this.transition = 'slide-up';// 单独设置页面的进场动画
+		$(page).find('.app-button.btn-info').on('click', function() {
+			var contact = {
+				firstName: 'Hong',
+				lastName: 'zhsh'
+			};
+			App.controller('info', function(page, contact) {
+				$(page).find('.first-name').text(contact.firstName);
+				$(page).find('.last-name').text(contact.lastName);
+				$(page).find('.app-button.btn-send2').on('click', function() {
+					App.dialog({
+						title: 'Network Error',
+						text: 'Looks like the connection is flaky. Try again in a bit',
+						okButton: 'Try Again',
+						cancelButton: 'Cancel'
+					}, function(tryAgain) {
+						if (tryAgain) {
+							// try again
+						}
+					});
+				});
+				$(page).find('.app-button.btn-pictureView').on('click', function() {
+					App.controller('viewer', function(page, data) {
+						var photoViewer = new PhotoViewer(page, data.urls);
+					});
+					App.load('viewer', {
+						urls: [
+							'../../img/img01.jpg',
+							'../../img/img02.jpg',
+							'../../img/img03.jpg'
+						]
+					});
+				});
+			});
+			App.load('info', contact);
+		});
+	});
+	App.load('home');
+</script>

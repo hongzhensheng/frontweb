@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+<style>
+.jtc_neir{margin-left:20px; margin-right:20px; color:#000000; font-size:12px; background:none; line-height:32px; overflow-y:scroll;overflow-x:hidden;  
+      scrollbar-3dlight-color:rgb(222,222,222);  
+scrollbar-arrow-color:rgb(222,222,222);  
+scrollbar-base-color:rgb(222,222,222);  
+scrollbar-darkshadow-color:rgb(222,222,222);  
+scrollbar-face-color:rgb(222,222,222);  
+scrollbar-highlight-color:rgb(222,222,222);  
+scrollbar-shadow-color:rgb(222,222,222);}  
+.jtc_tiao{width:8px; position:absolute; top:80px; right:20px; z-index:10;}  
+.tiao_up{width:8px; height:10px; background:url(../images/scrollbar-3.jpg) left top no-repeat; line-height:0px; overflow:hidden;}  
+.tiao_mid{width:8px; background:url(../images/scrollbar-3.jpg) -39px center  repeat-y; line-height:0px; overflow:hidden;}  
+.tiao_bottom{width:8px; height:10px; background:url(../images/scrollbar-3.jpg) -13px bottom no-repeat;font-size:0; line-height:0px; overflow:hidden;}  
+</style>
+	<body>
+<div id="mainScrollContent">
+	<div class="jtc_neir" id="Div1" style="height: 100px;">
+		营业总收入:11.66亿元(同比增长-1.75%)
+		<br />
+		<a href="bank.aspx">dddd</a>净利润:0.19亿元(同比增长23.72%)
+		<br /> 每股收益:0.04元
+		<br /> 净资产收益率:1.58%
+		<br /> 毛利率:12.22%(同比增长39.89%)
+		<br /> 总资产:30.46亿元(同比增长-7.14%)
+		<br /> as大苏打撒旦撒
+		<br /> 阿斯蒂芬多个地方营业总收入:11.66亿元(同比增长-1.75%)
+		<br /> 净利润:0.19亿元(同比增长23.72%)
+		<br /> 每股收益:0.04元
+		<br /> 净资产收益率:1.58%
+		<br /> 毛利率:12.22%(同比增长39.89%)
+		<br /> 总资产:30.46亿元(同比增长-7.14%)
+		<br /> as大苏打撒旦撒
+		<br /> 阿斯蒂芬多个地方营业总收入:11.66亿元(同比增长-1.75%)
+		<br /> 净利润:0.19亿元(同比增长23.72%)
+		<br /> 每股收益:0.04元
+		<br /> 净资产收益率:1.58%
+		<br /> 毛利率:12.22%(同比增长39.89%)
+		<br /> 总资产:30.46亿元(同比增长-7.14%)
+		<br /> as大苏打撒旦撒
+		<br /> 阿斯蒂芬多个地方营业总收入:11.66亿元(同比增长-1.75%)
+		<br /> 净利润:0.19亿元(同比增长23.72%)
+		<br /> 每股收益:0.04元
+		<br /> 净资产收益率:1.58%
+		<br /> 毛利率:12.22%(同比增长39.89%)
+		<br /> 总资产:30.46亿元(同比增长-7.14%)
+		<br /> as大苏打撒旦撒
+		<br /> 阿斯蒂芬多个地方营业总收入:11.66亿元(同比增长-1.75%)
+		<br /> 净利润:0.19亿元(同比增长23.72%)
+		<br /> 每股收益:0.04元
+		<br /> 净资产收益率:1.58%
+		<br /> 毛利率:12.22%(同比增长39.89%)
+		<br /> 总资产:30.46亿元(同比增长-7.14%)
+		<br /> as大苏打撒旦撒
+		<br /> 阿斯蒂芬多个地方
+	</div>
+	<div class="jtc_tiao" style="background-color: rgb(196,206,208); z-index: 2;" id="Div2">
+	</div>
+	<div class="jtc_tiao" style="background-color: rgb(222,222,222); z-index: 1; width: 16px;" id="Div3">
+	</div>
+	<div class="jtc_tiao" id="Div4">
+		<div class="tiao_up">
+		</div>
+		<div class="tiao_mid">
+		</div>
+		<div class="tiao_bottom">
+		</div>
+	</div>
+</div>
+	</body>
+
+</html>
+<script type="text/javascript" src="js/jquery-1.7.2.js" ></script>
+<script>
+	var scrMinHeight = 1; //滚动条最小高度  
+	var scrMaxHeight = 0; //滚动条最大高度  
+	var scrDefualtTop = 80; //滚动条默认位置  
+	var scrHeight = 0;
+	//初始化滚动条  
+	function InitScroll() {
+		scrMaxHeight = $("#mainScrollContent").height(); //文本框高度  
+		scrHeight = document.getElementById("mainScrollContent").scrollHeight; //滚动文本高度  
+		scrHeight = parseInt((scrMaxHeight / scrHeight) * scrMaxHeight);
+		if(scrHeight <= scrMinHeight) {
+			scrHeight = scrMinHeight;
+		}
+		if(scrHeight >= scrMaxHeight) {
+			$("#scrollContent").hide();
+		} else {
+			$("#scrollContent").show();
+			$("#scrollContent .tiao_mid").css("height", (scrHeight - 19) + "px");
+		}
+	}
+
+	$(document).ready(function() {
+		$(".bod").height(($(document).height() - 80) + "px");
+		$("#mainScrollContent").height(($(document).height() - 125) + "px");
+		scrMaxHeight = ($(document).height() - 125); //滚动条最大高度  
+		$("#scrollBody").height(($(document).height() - 125) + "px");
+		$("#scrollBodyBack").height(($(document).height() - 125) + "px");
+
+		InitScroll();
+		$("#mainScrollContent").scroll(function() {
+			ChangeScroll();
+		});
+		var y1 = 0;
+		$("#scrollContent").mousedown(function(event) {
+			var scrContentTop = $("#scrollContent").css("top");
+			y1 = event.clientY - parseInt(scrContentTop.replace("px", ""));
+			$("#scrollContent").mousemove(function(event) {
+				if((event.clientY - y1) < scrDefualtTop) {
+					$("#scrollContent").css("top", scrDefualtTop + "px");
+				} else if((event.clientY - y1) > (scrDefualtTop + scrMaxHeight - scrHeight)) {
+					$("#scrollContent").css("top", (scrDefualtTop + scrMaxHeight - scrHeight) + "px");
+				} else {
+					$("#scrollContent").css("top", (event.clientY - y1) + "px");
+				}
+				ChangeScrollContent();
+			});
+		}).mouseup(function() {
+			$("#scrollContent").unbind("mousemove");
+		}).mouseout(function() {
+			$("#scrollContent").unbind("mousemove");
+		});
+	});
+
+	//改变滚动内容位置  
+	function ChangeScrollContent() {
+		var scrTop = $("#scrollContent").css("top");
+		var st = parseInt(scrTop.replace("px", ""));
+		st = ((st - scrDefualtTop) * document.getElementById("mainScrollContent").scrollHeight) / scrMaxHeight
+		$("#mainScrollContent").scrollTop(st); //滚动的高度  
+	}
+
+	//改变滚动条位置  
+	function ChangeScroll() {
+		var scrTop = $("#mainScrollContent").scrollTop(); //滚动的高度  
+		scrTop = (scrTop * scrMaxHeight) / document.getElementById("mainScrollContent").scrollHeight + scrDefualtTop;
+		$("#scrollContent").css("top", scrTop + "px");
+	}
+</script>

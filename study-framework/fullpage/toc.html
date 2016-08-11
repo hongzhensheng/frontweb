@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<meta content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no" name="viewport">
+		<meta content="yes" name="apple-mobile-web-app-capable">
+		<meta content="black" name="apple-mobile-web-app-status-bar-style">
+		<meta content="telephone=no" name="format-detection">
+		<meta content="email=no" name="format-detection">
+		<title>fullPage</title>
+		<link rel="stylesheet" href="css/eqShow-5.3.6.css" />
+		<style>
+			* {
+				padding: 0;
+				margin: 0;
+			}
+			/*框架*/
+			
+			html {
+				-ms-touch-action: none;
+				font-size: 62.5%;
+			}
+			/* 禁止winphone默认触摸事件 */
+			
+			body {
+				overflow: hidden;
+			}
+			
+			.page-wrap {
+				overflow: hidden
+			}
+			
+			.page {
+				display: none;
+				width: 100%;
+				height: 100%;
+				overflow: hidden;
+				position: absolute;
+				top: 0;
+				left: 0
+			}
+			
+			.contain {
+				width: 100%;
+				height: 100%;
+				display: none;
+				position: relative;
+				z-index: 0;
+				font-size: 1.8rem;
+			}
+			
+			.current .contain,
+			.slide .contain {
+				display: block
+			}
+			
+			.current {
+				display: block;
+				z-index: 1
+			}
+			
+			.slide {
+				display: block;
+				z-index: 2
+			}
+			
+			.swipe {
+				display: block;
+				z-index: 3;
+				transition-duration: 0ms!important;
+				-webkit-transition-duration: 0ms!important
+			}
+			
+			#music {
+				position: fixed;
+				top: 15px;
+				right: 15px;
+				width: 30px;
+				height: 30px;
+				z-index: 99;
+				background: url(image/normalmusic.svg);
+				background-position: center;
+				background-size: 100% 100%;
+			}
+		</style>
+	</head>
+
+	<!--[if lte IE 7]>      
+<body scroll="no"> 
+<![endif]-->
+	<!--[if gt IE 7]><!-->
+
+	<body>
+		<!--<![endif]-->
+
+		<!-- 框架[[ -->
+
+		<div id="pageContain" class="page-wrap">
+			<div class="page page1 current" style="background-color: green;">
+				<div class="contain">
+					第一屏
+					<br/>核武器等会爆粗鳄鱼·代号为气度和委屈地挥舞起度从不翠娥醋味分割位发车!
+					<div><img src="image/yq0KEVWDtE6AWL7tAAAwfM4MzuE001.png"></div>
+				</div>
+			</div>
+
+			<div class="page page2" style="background-color: yellow;">
+				<div class="contain">
+					第二屏
+					<br/>核武器等会爆粗鳄鱼·代号为气度和委屈地挥舞起度从不翠娥醋味分割位发车!
+				</div>
+			</div>
+
+			<div class="page page3" style="background-color:cornflowerblue;">
+				<div class="contain">
+					第三屏
+					<br/>核武器等会爆粗鳄鱼·代号为气度和委屈地挥舞起度从不翠娥醋味分割位发车!
+				</div>
+			</div>
+
+			<div class="page page4" style="background-color: purple;">
+				<div class="contain">
+					第四屏
+					<br/>核武器等会爆粗鳄鱼·代号为气度和委屈地挥舞起度从不翠娥醋味分割位发车!
+				</div>
+			</div>
+			<div class="page page5" style="background-color: olive;">
+				<div class="contain">
+					第5屏
+					<br/>核武器等会爆粗鳄鱼·代号为气度和委屈地挥舞起度从不翠娥醋味分割位发车!
+				</div>
+			</div>
+			<div class="page page6" style="background-color: coral;">
+				<div class="contain">
+					第6屏
+					<br/>核武器等会爆粗鳄鱼·代号为气度和委屈地挥舞起度从不翠娥醋味分割位发车!
+				</div>
+			</div>
+		</div>
+		<!-- 框架]] -->
+		<!--<div id="music">
+	<audio loop src="music/yq0KA1TTMLWAEOaEAAIu5SAL7lc430.mp3" preload autoplay="autoplay"></audio>
+</div>-->
+
+	</body>
+
+	<script type="text/javascript" src="js/fullPage.min.js"></script>
+	<script type="text/javascript" src="js/jquery-2.1.4.js"></script>
+	<script type="text/javascript" src="js/jquery.easing.min.js"></script>
+	<script type="text/javascript">
+		//禁止窗口的默认滑动
+		document.ontouchmove = function(e) {
+			e.preventDefault();
+		}
+		//框架
+		var runPage,
+			interval,
+			autoPlay;
+		autoPlay = function(to) {
+			clearTimeout(interval);
+			interval = setTimeout(function() {
+				runPage.go(to);
+			}, 5000);
+		}
+		runPage = new FullPage({
+			id: 'pageContain', // id of contain
+			slideTime: 800, // time of slide
+			continuous: true, // create an infinite feel with no endpoints
+			css3: true,
+			effect: { // slide effect
+				transform: {
+					translate: 'Y', // 'X'|'Y'|'XY'|'none'
+					scale: [1, 1], // [scalefrom, scaleto]
+					rotate: [0, 0] // [rotatefrom, rotateto]
+				},
+				opacity: [1, 1] // [opacityfrom, opacityto]
+			},
+			mode: 'wheel,touch', // mode of fullpage
+			easing: 'linear', // easing('ease','ease-in','ease-in-out' or use cubic-bezier like [.33, 1.81, 1, 1] )
+			callback: function(index, thisPage) {
+				index = index + 1 > 3 ? 0 : index + 1;
+				//autoPlay(index);
+			}
+		});
+		// interval = setTimeout(function() {
+		//     runPage.go(runPage.thisPage() + 1);
+		// }, 5000);
+	</script>
+
+</html>

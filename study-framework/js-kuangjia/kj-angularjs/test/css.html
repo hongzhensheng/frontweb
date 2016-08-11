@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html ng-app="myApp">
+	<head>
+		<meta charset="UTF-8">
+		<title>ng-clsss</title>
+	</head>
+	<style>
+		.text-red{color:red;}
+		.text-green{color:green;}
+		.red{color:red;}
+		.yellow{color:yellow;}
+	</style>
+	<body>
+		<div ng-controller="cssContr">
+			<p class="text-{{color}}">hello word!</p>
+			<button ng-click="setColor()">绿色</button>
+		</div>
+		
+		<div ng-controller="cssContr2">
+			<p ng-class="{red:isError,yellow:isWarning}">hello word!</p>
+			<button ng-click="setError()">Error</button>
+			<button ng-click="setWarning()">Warning</button>
+		</div>
+	</body>
+	<script type="text/javascript" src="../js/angular-1.0.1.min.js" ></script>
+	<script type="text/javascript" src="../js/css.js" ></script>
+</html>

@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>图标菜单</title>
+		
+		<!-- Bootstrap core CSS -->
+		<link href="css/bootstrap.css" rel="stylesheet">
+	</head>
+	<style>
+		body{color: #000;margin: 50px;border: 1px solid #000000;}
+		body >div{margin-bottom: 20px;}
+		#div1 >*{margin: 5px;}
+	</style>
+	<body>
+		<div id="div1" class="container">
+			<h1>图标菜单</h1>
+			<i class="glyphicon glyphicon-star"></i>
+			<i class="glyphicon glyphicon-adjust"></i>
+			<span class="glyphicon glyphicon-alert"></span>
+			<i class="glyphicon glyphicon-align-center"></i>
+			<i class="glyphicon glyphicon-align-justify"></i>
+			<i class="glyphicon glyphicon-align-left"></i>
+			<i class="glyphicon glyphicon-align-right"></i>
+			<i class="glyphicon glyphicon-apple"></i>
+			<i class="glyphicon glyphicon-arrow-down"></i>
+			<i class="glyphicon glyphicon-arrow-left"></i>
+			<i class="glyphicon glyphicon-arrow-right"></i>
+			<i class="glyphicon glyphicon-arrow-up"></i>
+			<i class="glyphicon glyphicon-asterisk"></i>
+			<i class="glyphicon glyphicon-baby-formula"></i>
+		</div>
+		<div id="div2" class="container">
+			<h1>图标结合按钮</h1>
+			<button class="btn btn-default btn-lg">
+				<i class="glyphicon glyphicon-star"></i>
+			</button>
+			<button class="btn btn-default">
+				<i class="glyphicon glyphicon-star"></i>
+			</button>
+			<button class="btn btn-default btn-sm">
+				<i class="glyphicon glyphicon-star"></i>
+			</button>
+			<button class="btn btn-default btn-xs">
+				<i class="glyphicon glyphicon-star"></i>
+			</button>
+		</div>
+		<hr>
+		<div id="div3" class="container">
+			<h1>下拉菜单组件</h1>
+			<div class="dropdown open"><!--默认打开加 open类-->
+				<button class="btn btn-default" data-toggle="dropdown">
+					<!--添加点击展示关闭效果 加   data-toggle="dropdown"-->
+					下拉菜单<span class="caret"></span>
+				</button>
+				<ul class="dropdown-menu">
+					<li><a href="#">1</a></li>
+					<li><a href="#">2</a></li>
+					<li><a href="#">3</a></li>
+					<li><a href="#">4</a></li>
+				</ul>
+			</div>
+			<h1>上拉菜单组件</h1>
+			<div class="dropup"><!--默认打开加 open类-->
+				<button class="btn btn-default" data-toggle="dropdown">
+					<!--添加点击展示关闭效果 加   data-toggle="dropdown"-->
+					上拉菜单<span class="caret"></span>
+				</button>
+				<ul class="dropdown-menu">
+					<li><a href="#">1</a></li>
+					<li><a href="#">2</a></li>
+					<li><a href="#">3</a></li>
+					<li><a href="#">4</a></li>
+				</ul>
+			</div>
+			<h1>综合菜单组件</h1>
+			<div class="dropup"><!--默认打开加 open类-->
+				<button class="btn btn-default" data-toggle="dropdown">
+					<!--添加点击展示关闭效果 加   data-toggle="dropdown"-->
+					上拉菜单<span class="caret"></span>
+				</button>
+				<ul class="dropdown-menu">
+					<li class="dropdown-header">网站导航</li>
+					<li><a href="#">1</a></li>
+					<li><a href="#">2</a></li>
+					<!--设置菜单分割线 class="divider"-->
+					<li class="divider"><a href="#">3</a></li>
+					<!--设置菜单的禁用项-->
+					<li class="disabled"><a href="#">4</a></li>
+				</ul>
+			</div>
+		</div>
+		<div id="div4" class="container">
+			<h1>组合按钮</h1>
+			<div class="btn-group">
+				<button class="btn btn-default">左</button>
+				<button class="btn btn-default">中</button>
+				<button class="btn btn-default">右</button>
+			</div>
+			<h1>将多个</h1>
+		</div>
+	</body>
+</html>
+<script src="js/jquery.min.js"></script>
+<script src="js/bootstrap.js"></script>
