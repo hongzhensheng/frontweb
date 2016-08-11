@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>内凹圆角effect</title>
+	</head>
+	<style>
+		body {
+			background-color: #2C2C2C;
+		}
+		
+		.div1 {
+			position: absolute;
+			background-color: blueviolet;
+			left: 100px;
+			top: 50px;
+			width: 100px;
+			height: 50px;
+			border-radius: 10px 10px 0 0;
+		}
+		.div1::before,.div1::after  {
+			content: "";
+			position: absolute;
+			bottom: 0;
+			width: 20px;
+			height: 20px;
+		}
+		.div1::before {
+			left: -20px;
+			background: -webkit-radial-gradient(0% 0%, circle, transparent 0%, transparent 70%, blueviolet 70%, blueviolet);
+			/* Safari 5.1 - 6.0 */
+			background: -o-radial-gradient(0% 0%, circle, transparent 0%, transparent 70%, blueviolet 70%, blueviolet);
+			/* Opera 11.6 - 12.0 */
+			background: -moz-radial-gradient(0% 0%, circle, transparent 0%, transparent 70%, blueviolet 70%, blueviolet);
+			/* Firefox 3.6 - 15 */
+			background: radial-gradient(0% 0%, circle, transparent 0%, transparent 70%, blueviolet 70%, blueviolet);
+			/* 标准的语法（必须放在最后） */
+		}
+		
+		.div1::after {
+			right: -20px;
+			background: -webkit-radial-gradient(100% 0%, circle, transparent 0%, transparent 70%, blueviolet 70%, blueviolet);
+			/* Safari 5.1 - 6.0 */
+			background: -o-radial-gradient(100% 0%, circle, transparent 0%, transparent 70%, blueviolet 70%, blueviolet);
+			/* Opera 11.6 - 12.0 */
+			background: -moz-radial-gradient(100% 0%, circle, transparent 0%, transparent 70%, blueviolet 70%, blueviolet);
+			/* Firefox 3.6 - 15 */
+			background: radial-gradient(100% 0%, circle, transparent 0%, transparent 70%, blueviolet 70%, blueviolet);
+			/* 标准的语法（必须放在最后） */
+		}
+		
+	</style>
+
+	<body>
+		<div class="div1"></div>
+	</body>
+
+</html>

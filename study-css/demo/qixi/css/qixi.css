@@ -1,0 +1,775 @@
+* {
+	padding: 0;
+	margin: 0;
+}
+
+html,
+body {
+	width: 100%;
+	height: 100%;
+}
+
+ul,
+li {
+	list-style-type: none;
+}
+
+
+/* content */
+
+#content {
+	position: absolute;
+	overflow: hidden;
+	width: 100%;
+	height: 100%;
+	background-color: black;
+}
+
+.content-wrap {
+	position: relative;
+}
+
+.content-wrap >li {
+	width: 100%;
+	height: 100%;
+	background-color: #8A2BE2;
+	float: left;
+	overflow: hidden;
+	position: relative;
+}
+
+.content-wrap >li:nth-child(2) {
+	background-color: #D60B3B;
+}
+
+.content-wrap >li:nth-child(3) {
+	background-color: #EF1639;
+}
+
+
+/* page-a */
+
+.a-bg {
+	width: 100%;
+	height: 100%;
+	position: absolute;
+}
+
+.a-bg-top {
+	width: 100%;
+	height: 71.6%;
+	background-image: url(../images/background/a_background_top.png);
+	background-size: 100% 100%;
+}
+
+.a-bg-mid {
+	width: 100%;
+	height: 13.1%;
+	background-image: url(../images/background/a_background_middle.png);
+	background-size: 100% 100%;
+}
+
+.a-bg-botton {
+	width: 100%;
+	height: 15.3%;
+	background-image: url(../images/background/a_background_botton.png);
+	background-size: 100% 100%;
+}
+
+
+/* 太阳自转以及动画 */
+
+#sun {
+	background: url(../images/sun.png) no-repeat;
+	background-size: 100%;
+	position: absolute;
+	z-index: 1;
+	top: -30px;
+	height: 201px;
+	width: 201px;
+	right: 40%;
+}
+
+.ratotion {
+	animation: ratotion 30s linear;
+	-webkit-animation: ratotion 30s linear;
+}
+
+.cloud {
+	z-index: 2;
+	position: absolute;
+	background-size: 100%;
+}
+
+.cloud.cloud-a {
+	width: 181px;
+	height: 101px;
+	left: -5%;
+	top: 15%;
+	background: url(../images/cloud1.png);
+}
+
+.cloud.cloud-b {
+	width: 301px;
+	height: 140px;
+	right: -5%;
+	background: url(../images/cloud2.png);
+}
+
+.cloud1Animation {
+	animation: cloud1 30s infinite;
+	-webkit-animation: cloud1 30s infinite;
+}
+
+.cloud2Animation {
+	animation: cloud2 60s infinite;
+	-webkit-animation: cloud2 60s infinite;
+}
+
+
+/* page-b */
+
+
+/*鸟*/
+
+.bird {
+	min-width: 91px;
+	min-height: 71px;
+	top: 10%;
+	position: absolute;
+	z-index: 10;
+	right: -91px;
+	background: url(../images/bird.png) -182px 0px no-repeat;
+}
+
+.birdFly {
+	-webkit-animation-name: bird-slow;
+	-webkit-animation-duration: 400ms;
+	-webkit-animation-timing-function: step-start;
+	-webkit-animation-iteration-count: infinite;
+	animation-name: bird-slow;
+	animation-duration: 400ms;
+	animation-timing-function: step-start;
+	animation-iteration-count: infinite;
+}
+
+
+/*背景图*/
+
+.b-bg {
+	width: 100%;
+	height: 100%;
+	background-image: url(../images/QixiB-dark.png);
+	background-size: 100% 100%;
+	position: absolute;
+}
+
+.b-bg-preload {
+	background: url(../images/QixiB-bright.png) no-repeat -9999px -9999px;
+}
+
+.lamp-bright {
+	background-image: url(../images/QixiB-bright.png);
+}
+
+
+/*商店*/
+
+.shop {
+	width: 39.5%;
+	height: 35.5%;
+	position: absolute;
+	left: 29%;
+	top: 36.5%;
+}
+
+.door {
+	position: absolute;
+	width: 32%;
+	height: 100%;
+	top: 32%;
+	height: 68%;
+	overflow: hidden;
+	left: 58.5%;
+}
+
+.door-left,
+.door-right {
+	width: 50%;
+	height: 100%;
+	position: absolute;
+}
+
+.door-left {
+	left: 0%;
+	background: url(../images/door-left.png);
+	background-size: 100% 100%;
+}
+
+.door-right {
+	left: 50%;
+	background: url(../images/door-right.png);
+	background-size: 100% 100%;
+}
+
+
+/* 小男孩 */
+
+.charecter {
+	position: absolute;
+	width: 151px;
+	height: 291px;
+	background: url(../images/boy.png) 0 -291px no-repeat;
+	left: 6%;
+	top: 55%;
+}
+
+.slowWalk {
+	animation: boy-slow 950ms infinite step-start;
+	-ms-animation: boy-slow 950ms infinite step-start;
+	-webkit-animation: boy-slow 950ms infinite step-start;
+}
+
+.slowFlowerWalk {
+	animation: boy-flower-slow 950ms infinite steps(1, start);
+	-ms-animation: boy-flower-slow 950ms infinite steps(1, start);
+	-webkit-animation: boy-flower-slow 950ms infinite steps(1, start);
+}
+
+.pauseWalk {
+	animation-play-state: paused;
+	-ms-animation-play-state: paused;
+	-moz-animation-play-state: paused;
+	-webkit-animation-play-state: paused;
+}
+
+.boyOriginal {
+	background-position: -150px -0px;
+}
+
+
+/*男孩转身*/
+
+.boy-rotate {
+	-webkit-animation-name: boy-rotate;
+	-webkit-animation-duration: 850ms;
+	-webkit-animation-iteration-count: 1;
+	-webkit-animation-timing-function: step-start;
+	-webkit-animation-fill-mode: forwards;
+	animation-name: boy-rotate;
+	animation-duration: 850ms;
+	animation-iteration-count: 1;
+	animation-timing-function: step-start;
+	animation-fill-mode: forwards;
+}
+
+
+/* page-c */
+
+
+/*背景图*/
+
+.c_background {
+	width: 100%;
+	height: 100%;
+	background-size: 100% 100%;
+	position: absolute;
+}
+
+.c_background_top {
+	width: 100%;
+	height: 71.6%;
+	background-image: url(../images/background/c_background_top.png);
+	background-size: 100% 100%;
+}
+
+.c_background_middle {
+	width: 100%;
+	height: 13.1%;
+	background-image: url(../images/background/c_background_middle.png);
+	background-size: 100% 100%;
+}
+
+.c_background_botton {
+	width: 100%;
+	height: 15.3%;
+	background-image: url(../images/background/c_background_botton.png);
+	background-size: 100% 100%;
+}
+
+
+/*小女孩*/
+
+.girl {
+	background: url(../images/girl.png) -755px -0px no-repeat;
+	position: absolute;
+	right: 40%;
+	top: 37%;
+	width: 151px;
+	height: 291px;
+}
+
+.girl-rotate {
+	-webkit-animation-name: girl-rotate;
+	-webkit-animation-duration: 850ms;
+	-webkit-animation-iteration-count: 1;
+	-webkit-animation-timing-function: step-start;
+	-webkit-animation-fill-mode: forwards;
+	animation-name: girl-rotate;
+	animation-duration: 850ms;
+	animation-iteration-count: 1;
+	animation-timing-function: step-start;
+	animation-fill-mode: forwards;
+}
+
+
+/*桥*/
+
+.bridge-bottom {
+	position: absolute;
+	width: 41%;
+	height: 24%;
+	left: 29.5%;
+	top: 76%;
+	overflow: hidden;
+	/*-webkit-transform:perspective(8px) rotateX(.8deg); */
+}
+
+
+/*波浪水布局*/
+
+.water {
+	width: 100%;
+	height: 100%;
+}
+
+.water_1,
+.water_2,
+.water_3,
+.water_4 {
+	width: 100%;
+	position: absolute;
+	height: 50%;
+	animation: shake 40s linear alternate infinite;
+	-webkit-animation: shake 40s linear alternate infinite;
+}
+
+.water_1 {
+	width: 131px;
+	height: 15px;
+	top: 13%;
+	left: 35%;
+	background: url(../images/water.png) -261px -0px no-repeat;
+}
+
+.water_2 {
+	width: 161px;
+	height: 9px;
+	top: 30%;
+	left: 45%;
+	background: url(../images/water.png) -693px -0px no-repeat;
+	-webkit-animation-delay: 2s;
+	animation-delay: 2s;
+}
+
+.water_3 {
+	width: 261px;
+	height: 29px;
+	top: 50%;
+	left: 15%;
+	background: url(../images/water.png) -0px -0px no-repeat;
+	-webkit-animation-delay: 1s;
+	animation-delay: 1s;
+}
+
+.water_4 {
+	width: 301px;
+	height: 12px;
+	top: 75%;
+	left: 30%;
+	background: url(../images/water.png) -392px -0px no-repeat;
+	-webkit-animation-delay: 3s;
+	animation-delay: 3s;
+}
+
+
+/*星星*/
+
+.stars {
+	width: 100%;
+	height: 100%;
+	position: absolute;
+}
+
+.stars > li {
+	position: absolute;
+	width: 30px;
+	height: 31px;
+	background-image: url(../images/stars.png);
+	animation: flash ease-in-out infinite alternate;
+	-webkit-animation: flash ease-in-out infinite alternate;
+}
+
+.stars1 {
+	top: 20%;
+	left: 30%;
+	animation-duration: 5s;
+	-webkit-animation-duration: 5s;
+}
+
+.stars2 {
+	top: 15%;
+	left: 20%;
+	animation-duration: 5s;
+	-webkit-animation-duration: 5s;
+}
+
+.stars3 {
+	top: 25%;
+	left: 85%;
+	animation-duration: 5s;
+	-webkit-animation-duration: 5s;
+}
+
+.stars4 {
+	top: 30%;
+	left: 70%;
+	animation-duration: 5s;
+	-webkit-animation-duration: 5s;
+}
+
+.stars5 {
+	top: 25%;
+	left: 20%;
+	animation-duration: 5s;
+	-webkit-animation-duration: 5s;
+}
+
+.stars6 {
+	top: 10%;
+	left: 65%;
+	animation-duration: 5s;
+	-webkit-animation-duration: 5s;
+}
+
+
+/* ---animation---  */
+
+@keyframes cloud1 {
+	0% {
+		left: -5%;
+	}
+	100% {
+		left: 100%;
+	}
+}
+
+@-webkit-keyframes cloud1 {
+	0% {
+		left: -5%;
+	}
+	100% {
+		left: 100%;
+	}
+}
+
+@keyframes cloud2 {
+	0% {
+		right: -5%;
+	}
+	100% {
+		right: 100%;
+	}
+}
+
+@-webkit-keyframes cloud2 {
+	0% {
+		right: -5%;
+	}
+	100% {
+		right: 100%;
+	}
+}
+
+@keyframes ratotion {
+	0% {
+		transform: translateX(0) translateY(0);
+	}
+	100% {
+		transform: translateX(-2000px) translateY(400px);
+	}
+}
+
+@-webkit-keyframes ratotion {
+	0% {
+		transform: translateX(0) translateY(0);
+	}
+	100% {
+		transform: translateX(-2000px) translateY(400px);
+	}
+}
+
+@keyframes boy-slow {
+	0% {
+		background-position: -0px -291px;
+	}
+	25% {
+		background-position: -602px -0px;
+	}
+	50% {
+		background-position: -302px -291px;
+	}
+	75% {
+		background-position: -151px -291px;
+	}
+	100% {
+		background-position: -0px -291px;
+	}
+}
+
+@-webkit-keyframes boy-slow {
+	0% {
+		background-position: -0px -291px;
+	}
+	25% {
+		background-position: -602px -0px;
+	}
+	50% {
+		background-position: -302px -291px;
+	}
+	75% {
+		background-position: -151px -291px;
+	}
+	100% {
+		background-position: -0px -291px;
+	}
+}
+
+
+/** 带花 */
+
+@keyframes boy-flower-slow {
+	0% {
+		background-position: -453px -0px;
+	}
+	25% {
+		background-position: -904px -0px;
+	}
+	50% {
+		background-position: -451px -0px;
+	}
+	75% {
+		background-position: -753px -0px;
+	}
+	100% {
+		background-position: -300px -0px;
+	}
+}
+
+@-webkit-keyframes boy-flower-slow {
+	0% {
+		background-position: -453px -0px;
+	}
+	25% {
+		background-position: -904px -0px;
+	}
+	50% {
+		background-position: -451px -0px;
+	}
+	75% {
+		background-position: -753px -0px;
+	}
+	100% {
+		background-position: -300px -0px;
+	}
+}
+
+@keyframes bird-slow {
+	0% {
+		background-position: -182px 0px;
+	}
+	50% {
+		background-position: 0px 0px;
+	}
+	75% {
+		background-position: -91px 0px;
+	}
+	100% {
+		background-position: -182px 0px;
+	}
+}
+
+@-webkit-keyframes bird-slow {
+	0% {
+		background-position: -182px 0px;
+	}
+	50% {
+		background-position: 0px 0px;
+	}
+	75% {
+		background-position: -91px 0px;
+	}
+	100% {
+		background-position: -182px 0px;
+	}
+}
+
+@-webkit-keyframes flash {
+	0%,
+	50%,
+	100% {
+		opacity: 1;
+	}
+	25%,
+	75% {
+		opacity: 0;
+	}
+}
+
+@keyframes flash {
+	0%,
+	50%,
+	100% {
+		opacity: 1;
+	}
+	25%,
+	75% {
+		opacity: 0;
+	}
+}
+
+@-webkit-keyframes shake {
+	0%,
+	100% {
+		-webkit-transform: translate3d(0, 0, 0);
+	}
+	10%,
+	30%,
+	50%,
+	70%,
+	90% {
+		-webkit-transform: translate3d(-30px, 0px, 0);
+	}
+	20%,
+	40%,
+	60%,
+	80% {
+		-webkit-transform: translate3d(30px, 0px, 0);
+	}
+}
+
+@keyframes shake {
+	0%,
+	100% {
+		-moz-transform: translate3d(0, 0, 0);
+	}
+	10%,
+	30%,
+	50%,
+	70%,
+	90% {
+		-moz-transform: translate3d(-30px, 0px, 0);
+	}
+	20%,
+	40%,
+	60%,
+	80% {
+		-moz-transform: translate3d(30px, 0px, 0);
+	}
+}
+
+@-webkit-keyframes boy-rotate {
+	0% {
+		background-position: -603px -291px;
+	}
+	16.7% {
+		background-position: -150px -0px;
+	}
+	33.4% {
+		background-position: -453px -291px;
+	}
+	50.1% {
+		background-position: -0px -0px;
+	}
+	66.8% {
+		background-position: -903px -291px;
+	}
+	83.5% {
+		background-position: -753px -291px;
+	}
+	100% {
+		background-position: -603px -291px;
+	}
+}
+
+@keyframes boy-rotate {
+	0% {
+		/*background-position: -603px -291px;*/
+	}
+	16.7% {
+		background-position: -150px -0px;
+	}
+	33.4% {
+		background-position: -453px -291px;
+	}
+	50.1% {
+		background-position: -0px -0px;
+	}
+	66.8% {
+		background-position: -903px -291px;
+	}
+	83.5% {
+		background-position: -753px -291px;
+	}
+	100% {
+		background-position: -603px -291px;
+	}
+}
+
+@-webkit-keyframes girl-rotate {
+	0% {
+		background-position: -604px -0px;
+	}
+	16.7% {
+		background-position: -151px -0px;
+	}
+	33.4% {
+		background-position: -906px -0px;
+	}
+	50.1% {
+		background-position: -0px -0px;
+	}
+	66.8% {
+		background-position: -302px -0px;
+	}
+	83.5% {
+		background-position: -453px -0px;
+	}
+	100% {
+		background-position: -604px -0px;
+	}
+}
+
+@keyframes girl-rotate {
+	0% {
+		/*background-position: -604px -0px;*/
+	}
+	16.7% {
+		background-position: -151px -0px;
+	}
+	33.4% {
+		background-position: -906px -0px;
+	}
+	50.1% {
+		background-position: -0px -0px;
+	}
+	66.8% {
+		background-position: -302px -0px;
+	}
+	83.5% {
+		background-position: -453px -0px;
+	}
+	100% {
+		background-position: -604px -0px;
+	}
+}
