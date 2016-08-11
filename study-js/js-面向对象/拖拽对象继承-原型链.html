@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<style>
+		#div1,#div2 {
+			position: absolute;
+			width: 150px;
+			height: 150px;
+			background-color: orangered;
+		}
+		#div2{background-color: yellow;}
+	</style>
+
+	<body>
+		<div id="div1"></div>
+		<div id="div2"></div>
+	</body>
+
+</html>
+<script>
+	var a1=[1,2,3];
+	var arr2=a1;
+	
+	arr2.push(4);
+	
+	alert(a1);//1,2,3,4
+	alert(arr2);//1,2,3,4
+</script>
+<script>
+	var a1=[1,2,3];
+	var arr2=[];
+	
+	for (var i in a1) {
+		arr2[i]=a1[i];
+	}
+	
+	arr2.push(4);
+	
+	alert(a1);//1,2,3
+	alert(arr2);//1,2,3,4
+</script>

@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script>
+			window.resizeTo(200,200);
+		</script>
+	</head>
+	<style>
+		*{margin: 0;padding: 0;}
+		body{width:100%;height:1000px;
+		background:-moz-linear-gradient(tan 100px, teal 100px, teal 200px, thistle 200px, thistle 300px, tomato 300px, tomato 400px, turquoise 400px, turquoise 500px);
+		background:-o-linear-gradient(tan 100px, teal 100px, teal 200px, thistle 200px, thistle 300px, tomato 300px, tomato 400px, turquoise 400px, turquoise 500px);
+		background:-webkit-linear-gradient(tan 100px, teal 100px, teal 200px, thistle 200px, thistle 300px, tomato 300px, tomato 400px, turquoise 400px, turquoise 500px);
+		background:linear-gradient(tan 100px, teal 100px, teal 200px, thistle 200px, thistle 300px, tomato 300px, tomato 400px, turquoise 400px, turquoise 500px);
+		}
+	</style>
+	<body>
+		<button id="window-moveBy">window.moveBy</button>
+		<button id="window-moveTo">window.moveTo</button>
+		<button id="window-resizeBy">window.resizeBy</button>
+		<button id="window-resizeTo">window.resizeTo</button>
+		<button id="window-scrollTo">window.scrollTo</button>
+		<button id="window-scrollBy">window.scrollBy</button>
+		<button id="window-find">window.find</button>
+	</body>
+</html>
+<script type="text/javascript">
+	var winMoveBy=document.getElementById('window-moveBy'),
+		winMoveTo=document.getElementById('window-moveTo'),
+		winResizeBy=document.getElementById('window-resizeBy'),
+		winResizeTo=document.getElementById('window-resizeTo'),
+		winScrollTo=document.getElementById('window-scrollTo'),
+		winScrollBy=document.getElementById('window-scrollBy'),
+		winFind=document.getElementById('window-find');
+	
+	winMoveBy.onclick=function(){
+		console.log('window-moveBy');
+		window.moveBy(100,100);
+	};
+	winMoveTo.onclick=function(){
+		console.log('window-movTo');
+		window.moveTo(100,100);
+	};
+	winResizeBy.onclick=function(){
+		//将当前窗口改变指定的大小(x,y)，当x、y的值大于0时为扩大，小于0时为缩小
+		console.log('window-resizeBy');
+		window.resizeBy(800,500);
+	};
+	winResizeTo.onclick=function(){
+		//将当前窗口改变成(x,y)大小，x、y分别为宽度和高度
+		console.log('window-resizeTo');
+		window.resizeTo(200,200);
+	};
+	winScrollTo.onclick=function(){
+		console.log('window-scrollTo');
+		window.scrollTo(0,900);
+	};
+	winScrollBy.onclick=function(){
+		//将窗口中的内容滚动到指定位置
+		console.log('window-scrollBy');
+		window.scrollBy(0,200);
+	};
+	winFind.onclick=function(){
+		//当触发该方法时，将弹出一个“find”(查找)对话窗口，并允许用户在触发find方法的页面中查找一个字符串
+		console.log('window-winFind');
+		window.find();
+	};
+</script>

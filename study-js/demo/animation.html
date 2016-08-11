@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+	</body>
+</html>
+<script>
+	window.onload=function(){
+		var div1=document.getElementById('div1');
+		div1.onmouseover=function(){
+			startMove();
+		};
+	};
+	var time=null;
+	function startMove(){
+		clearInterval(time);
+		var div=document.getElementById('div1');
+		time=setInterval(function(){
+			if(div.offsetLeft==0){
+				clearInterval(time);
+			}else{
+				div.style.left=div.offsetLeft+1+'px';
+			}
+		},30);
+		
+	};
+</script>

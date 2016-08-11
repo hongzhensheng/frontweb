@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<style type="text/css">
+		body{color:#fff;background-color:#000000;}
+	</style>
+	<body onLoad="statusMessage()">
+		<script type="text/javascript">
+			//-- Begin
+			var msg = "网络编程站欢迎你的光临，请多提意见，谢谢!";
+			var chars = msg.length + 1;
+			var updateStatus = "";
+			var i = 0;
+
+			function statusMessage() {
+				console.log('chars:'+chars);
+				if (i < chars) {
+					setTimeout("nextLetter()", 300);
+				}else{
+					console.log('666');
+				}
+			};
+
+			function nextLetter() {
+				updateStatus = msg.substring(i-1, i);
+				//window.status = updateStatus;
+				document.write(updateStatus);
+				i++;
+				statusMessage();
+			};
+			//-- End
+		</script>
+	</body>
+
+</html>

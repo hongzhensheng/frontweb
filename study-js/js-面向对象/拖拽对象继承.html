@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<style>
+		#div1,#div2 {
+			position: absolute;
+			width: 150px;
+			height: 150px;
+			background-color: orangered;
+		}
+		#div2{background-color: yellow;}
+	</style>
+
+	<body>
+		<div id="div1"></div>
+		<div id="div2"></div>
+	</body>
+
+</html>
+<script>
+	window.onload=function(){
+		new Drag("div1");
+		new Drag("div2");
+	};
+</script>
+<script>
+	function Person(name,sex){
+		this.name=name;
+		this.sex=sex;
+	}
+	Person.prototype.showName=function(){
+		alert(this.name);
+	}
+	Person.prototype.showSex=function(){
+		alert(this.sex);
+	}
+	/*------------------------------------------*/
+	function Worker(name,sex,job){
+		//构造函数伪装     调用父级的构造函数--为了继承父级属性
+		Person.call(this,name,sex);
+		this.job=job;
+	}
+	//原型链     通过原型来继承父级的方法   引用父类所有方法
+	//Worker.prototype=Person.prototype;
+	for(var i in Person.prototype){
+		Worker.prototype[i]=Person.prototype[i]
+	}
+	
+	Worker.prototype.showJob=function(){
+		alert(this.job)
+	}
+	
+	var w1=new Worker("HONG","男","coder");
+	w1.showJob();
+	w1.showName();
+</script>
+<script type="text/javascript" src="Drag.js"></script>

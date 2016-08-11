@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+		<title>热点图</title>
+	</head>
+	<style>
+		* {
+			margin: 0;
+			padding: 0;
+		}
+		
+		html,
+		body {
+			background: #000000;
+			color: #fff;
+		}
+		
+		#heatmap {
+			background-image: url(../img/IMG_3969.JPG);
+			background-size: 100% 100%;
+			margin-left: 50px;
+			border: 1px solid #fff;
+			width: 300px;
+			height: 300px;
+		}
+		
+		#div1 {
+			width: 250px;
+			height: 250px;
+			background: #08A1EF;
+			margin: 50px 0 0 50px;
+		}
+	</style>
+
+	<body>
+		<h2>HeatMap</h2>
+		<canvas id="heatmap">你的浏览器版本过低!不支持~</canvas>
+		<button id="resetButton">Reset</button>
+
+		<div id="div1"></div>
+	</body>
+
+</html>
+<script>
+	var points = {};
+	var SCALE = 3;
+	var x = -1,
+		y = -1;
+	var canvas = document.getElementById('heatmap');
+	var context = canvas.getContext('2d');
+
+	function loadDemo() {
+		document.getElementById('resetButton').onclick = reset;
+		context.globalAlpha = 0.2;
+		context.globalCompositeOperation = 'lighter'; //设置混合模式
+		function sample() {
+			if (x != -1) {
+				addToPoint(x, y);
+			}
+			setTimeout(sample, 200);
+		};
+		canvas.onmousemove = function(e) {
+			x = e.clientX - e.target.offsetLeft;
+			y = e.clientY - e.target.offsetTop;
+			console.log("onmousemove x:" + x + "; y:" + y);
+			addToPoint(x, y);
+		};
+		sample();
+	};
+	/*重置按钮*/
+	function reset() {
+		points = {};
+		context.clearRect(0, 0, 300, 300);
+		x = -1;
+		y = -1;
+	};
+	/*颜色查找表*/
+	function getColor(intensity) {
+		var colors = ['#072933', '#2e4045', '#8c593b', "#B2814E", "#FAC268", "#FAD237"];
+		return colors[Math.floor(intensity / 2)];
+	};
+	/**/
+	function drawPoint(x, y, radius) {
+		context.fillStyle = getColor(radius);
+		radius = Math.sqrt(radius) * 6;
+		context.beginPath();
+		context.arc(x, y, radius, 0, Math.PI * 2, true);
+		context.closePath();
+		context.fill();
+	};
+
+	function addToPoint(x, y) {
+		x = Math.floor(x / SCALE);
+		y = Math.floor(y / SCALE);
+		console.log("addToPoint x:" + x + "; y:" + y);
+		if (!points[[x, y]]) {
+			points[[x, y]] = 1;
+			console.log("addToPoint if");
+		} else if (points[[x, y]] == 10) {
+			console.log("addToPoint else if");
+			return;
+		} else {
+			console.log("addToPoint else");
+			points[[x, y]]++;
+		}
+		drawPoint(x * SCALE, y * SCALE, points[[x, y]]);
+		console.log("addToPoint end");
+	};
+	window.addEventListener('load', loadDemo, true);
+</script>
+<script>
+	var div1 = document.getElementById('div1');
+	div1.onclick = function(e) {
+		var x = e.clientX,
+			y = e.clientY;
+		var x2 = e.target.offsetLeft,
+			y2 = e.target.offsetTop;
+		var x0 = e.clientX - e.target.offsetLeft,
+			y0 = e.clientY - e.target.offsetTop;
+		div1.innerText = "x:" + x + "; y:" + y +
+			";/ x2:" + x2 + "; y2:" + y2 +
+			";/ x0:" + x0 + "; y0:" + y0;
+	};
+</script>

@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>Progress Bar</title>
+	</head>
+	<style>
+		#progress-box {
+			position: relative;
+			height: 40px;
+			background-color: #fff;
+			border: 1px solid #666666;
+		}
+		
+		#progress-txt,
+		#progress-bar {
+			position: absolute;
+			top: 0;
+			left: 0;
+			height: 100%;
+			width: 100%;
+			line-height: 40px;
+			text-align: center;
+		}
+		
+		#progress-bar {
+			color: white;
+			z-index: 2;
+			clip: rect(0px, 0px, 40px, 0);
+			background-color: #00A2EC;
+		}
+		
+		#progress-txt {
+			z-index: 1;
+			color: black;
+			background-color: #fff;
+		}
+	</style>
+
+	<body>
+		<div id="progress-box">
+			<div id="progress-bar">0%</div>
+			<div id="progress-txt">0%</div>
+		</div>
+	</body>
+
+</html>
+<script>
+	window.onload = function() {
+		var iNow = 0;
+		var timer = setInterval(function() {
+			if (iNow == 100) {
+				clearInterval(timer);
+			} else {
+				iNow += 5;
+				progress(iNow);
+			}
+		}, 200);
+
+		function progress(cent) {
+			var box = document.getElementById('progress-box'),
+				bar = document.getElementById('progress-bar'),
+				txt = document.getElementById('progress-txt');
+			var allWidth = parseInt(getStyle(box, 'width'));
+			bar.innerHTML = txt.innerHTML = cent + '%';
+			bar.style.clip = 'rect(0px,' + cent / 100 * allWidth + 'px,40px,0px)'
+
+			function getStyle(obj, attr) {
+				if (obj.currentStyle) {
+					return obj.currentStyle[attr];
+				} else {
+					return getComputedStyle(obj, false)[attr]
+				}
+			};
+		};
+	};
+</script>

@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+		<title>Canvas demo</title>
+		<link rel="stylesheet" href="canvas.css" />
+	</head>
+
+	<body>
+		<canvas id="mycanvas" width="400px" height="500px"></canvas>
+
+	</body>
+
+</html>
+<script type="text/javascript">
+	function drawRect(a, b, w, h, color, canvas) {
+		canvas.save();
+		canvas.fillStyle = color;
+		canvas.fillRect(a, b, w, h);
+		canvas.restore();
+	}
+</script>
+<script type="text/javascript">
+	function canvas1() {
+		var canvas = document.getElementById('mycanvas').getContext('2d');
+		/*canvas.save();
+		canvas.translate(130, 250);
+		// 加宽线条 
+		canvas.lineWidth = 4;
+		// 平滑路径的接合点 
+		canvas.lineJoin = 'round';
+		// 将颜色改成棕色
+		canvas.strokeStyle = '#663300';
+		//建表现树冠的路径
+		createCanopyPath(canvas);
+		// 将填充色设置为绿色并填充树冠 
+		canvas.fillStyle = '#339900';
+		canvas.fill();
+		//制当前路径
+		canvas.stroke();
+		// 将填充色设为棕色
+		canvas.fillStyle = '#663300';
+		// 填充用作树干的矩形区域
+		canvas.fillRect(-5, -50, 10, 50);
+		canvas.restore();*/
+		// 保存canvas的状态并绘制路径
+		canvas.save();
+		canvas.translate(-10, 350);
+		canvas.beginPath();
+		canvas.moveTo(0, 0);
+		// 加载砾石背景图 
+		var gravel = new Image();
+		gravel.src = "../img/tel.png";
+		gravel.onload = function() {
+			//drawTrails(canvas);
+			console.log('5555');
+		};
+		// 第一条曲线向右上方弯曲
+		canvas.quadraticCurveTo(170, -50, 260, -190);
+		// 第二条曲线向右下方弯曲
+		canvas.quadraticCurveTo(310, -250, 410, -250);
+		// 用背景图替代棕色粗线条
+		canvas.strokeStyle = canvas.createPattern(gravel, 'repeat');
+		canvas.lineWidth = 20;
+		canvas.stroke();
+		// 恢复之前的canvas状态
+		canvas.restore();
+		/*第一颗树及其 倒影*/
+		canvas.save();
+		canvas.translate(130, 250);
+		drawTree(canvas);
+		// X值随着Y值的增加而增加借助拉伸变换可以创建一棵用作阴影的倾斜的树 
+		canvas.transform(1, 0, -0.5, 1, 0, 0);
+		// 在Y轴方向将阴影的高度压缩为原来的60%
+		canvas.scale(1, 0.6);
+		// 使用透明度为20%的黑色填充树干
+		canvas.fillStyle = 'rgba(0, 0, 0, 0.2)';
+		canvas.fillRect(-5, -50, 10, 50);
+		// 使用已有的阴影效果重新绘制树
+		createCanopyPath(canvas);
+		canvas.fill();
+		canvas.restore();
+		/* 第二颗树及其 倒影     在(260,500)的位置绘制第二棵树*/
+		canvas.save();
+		canvas.translate(260, 500);
+		// 将第二棵树的宽高分别放大至原来的2倍
+		canvas.scale(2, 2);
+		drawTree(canvas);
+		canvas.transform(1, 0, -0.5, 1, 0, 0);
+		canvas.scale(1, 0.6);
+		canvas.fillStyle = 'rgba(0, 0, 0, 0.2)';
+		canvas.fillRect(-5, -50, 10, 50);
+		createCanopyPath(canvas);
+		canvas.fill();
+		canvas.restore();
+		/*文字*/
+		drawText(canvas);
+		/**/
+		function drawTrails(canvas) {
+			// 第一条曲线向右上方弯曲
+			canvas.quadraticCurveTo(170, -50, 260, -190);
+			// 第二条曲线向右下方弯曲
+			canvas.quadraticCurveTo(310, -250, 410, -250);
+			// 使用棕色的粗线条来绘制路径
+			//canvas.strokeStyle = '#663300';
+		};
+
+		function createCanopyPath(context) { // 绘制树冠   
+			context.beginPath();
+			context.moveTo(-25, -50);
+			context.lineTo(-10, -80);
+			context.lineTo(-20, -80);
+			context.lineTo(-5, -110);
+			context.lineTo(-15, -110);
+			// 树的顶点   
+			context.lineTo(0, -140);
+			context.lineTo(15, -110);
+			context.lineTo(5, -110);
+			context.lineTo(20, -80);
+			context.lineTo(10, -80);
+			context.lineTo(25, -50);
+			//连接起点闭合路径
+			context.closePath();
+		};
+
+		function drawTree(canvas) {
+			var trunkGradient = canvas.createLinearGradient(-5, -50, 5, -50);
+			trunkGradient.addColorStop(0, '#663300');
+			trunkGradient.addColorStop(0.4, '#996600');
+			trunkGradient.addColorStop(1, '#552200');
+			canvas.fillStyle = trunkGradient;
+			canvas.fillRect(-5, -50, 10, 50);
+			var canopyShadow = canvas.createLinearGradient(0, -50, 0, 0);
+			canopyShadow.addColorStop(0, 'rgba(0, 0, 0, 0.5)');
+			canopyShadow.addColorStop(0.2, 'rgba(0, 0, 0, 0.0)');
+			canvas.fillStyle = canopyShadow;
+			canvas.fillRect(-5, -50, 10, 50);
+			createCanopyPath(canvas);
+			canvas.lineWidth = 4;
+			canvas.lineJoin = 'round';
+			canvas.strokeStyle = '#663300';
+			canvas.stroke();
+			canvas.fillStyle = '#339900';
+			canvas.fill();
+		}
+
+		function drawText(canvas) {
+			canvas.save();
+			canvas.font = '60px impact'; //字体大小为60px 字体为impact
+			canvas.fillStyle = "#996600"; //字体颜色
+			canvas.textAlign = 'center'; //字体对齐方式
+			canvas.fillText('Happy Trails!', 200, 60, 400);
+			canvas.restore();
+			canvas.shadowColor = 'rgba(0,0,0,0.2)';
+			canvas.shadowOffsetX = 15;
+			canvas.shadowOffsetY = -10;
+			canvas.shadowBlur = 2;
+		};
+	};
+	canvas1();
+</script>

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>滚动条滚动到一定高度显示导航</title>
+	</head>
+	<style>
+		* {
+			margin: 0;
+			padding: 0;
+		}
+		
+		.all {
+			position: relative;
+			height: 2000px;
+			width: 100%;
+			background: blueviolet;
+		}
+		
+		.nav-box {
+			position: fixed;
+			top: 50%;
+			margin-top: -150px;
+			width: 100px;
+			height: 300px;
+			background: darkkhaki;
+		}
+		
+		.hide {
+			display: none;
+		}
+		
+		.show {
+			display: block;
+		}
+	</style>
+
+	<body>
+		<div class="all">
+			<div class="nav-box hide"></div>
+		</div>
+	</body>
+
+</html>
+<script type="text/javascript" src="js/jquery-2.1.4.js"></script>
+<script>
+	$(window).scroll(function() {
+		var scrollH = $(window).scrollTop();
+		if (scrollH > 500) {
+			$('.nav-box').removeClass('hide').addClass('show');
+		} else {
+			$('.nav-box').removeClass('show').addClass('hide');
+		}
+	});
+</script>

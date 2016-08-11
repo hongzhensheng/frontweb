@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>百叶窗</title>
+	</head>
+	<style>
+		* {
+			padding: 0;
+			margin: 0;
+		}
+		
+		ul,
+		li {
+			list-style: none;
+		}
+		#box ul{width: 100%;height: auto;border:1px solid #CCCCCC;}
+		#box ul li{
+			width: 100%;height:30px;overflow:hidden;position:relative;border-bottom: 1px dashed #333;line-height: 30px;
+		}
+		li div{
+			position:absolute;
+			top:-30px;
+		}
+		p{height:30px;}
+	</style>
+
+	<body>
+		<div id="box">
+			<ul id="ul1">
+				<li>
+					<div>
+						<p>11111111111111</p>
+						<p>22222222222222</p>
+					</div>
+				</li>
+				<li>
+					<div>
+						<p>33333</p>
+						<p>44444</p>
+					</div>
+				</li>
+				<li>
+					<div>
+						<p>55</p>
+						<p>66666</p>
+					</div>
+				</li>
+				<li>
+					<div>
+						<p>777777</p>
+						<p>888</p>
+					</div>
+				</li>
+			</ul>
+		</div>
+	</body>
+
+</html>
+<script type="text/javascript" src="../js/js-baiyec/move.js"></script>
+<script>
+	window.onload = function() {
+		var oul=document.getElementById('ul1');
+		toShow(oul);
+		
+		function toShow(obj){
+			var odiv=obj.getElementsByTagName('div');
+			var inow=0,timer=null;
+			var bool=true;
+			setInterval(function(){
+				toChange();
+			},2000);
+			
+			function toChange(){
+				timer=setInterval(function(){
+					if(inow==odiv.length){
+						clearInterval(timer);
+						inow=0;
+						bool=!bool;
+					}else{
+						startMove(odiv[inow],{top:(bool?0:-30)});
+						inow++;
+					}
+				},100);
+			};
+		}
+	};
+</script>

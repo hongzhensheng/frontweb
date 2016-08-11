@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>事件冒泡、捕获</title>
+	</head>
+	<style>
+		html,
+		body {
+			height: 100%;
+			width: 100%;
+			margin: 0;
+			padding: 0;
+		}
+		
+		.mt {
+			margin-top: 15px;
+		}
+	</style>
+
+	<body>
+		<style>
+			.content {
+				position: relative;
+				float: right;
+				border: 1px solid yellow;
+				word-wrap: break-word;
+				white-space: normal;
+				margin: auto;
+				box-sizing: border-box;
+				-webkit-box-sizing: border-box;
+			}
+			
+			.site-header {
+				padding: 1em;
+				display: inline-block;
+				top: 0;
+				left: 0;
+				right: 0;
+				width: 12%;
+				height: 100%;
+				float: left;
+				text-align: right;
+				position: fixed;
+				overflow: hidden;
+				z-index: 1;
+				border: 1px solid green;
+				box-sizing: border-box;
+				-webkit-box-sizing: border-box;
+				/*background-color: blue; */
+			}
+			
+			.main-navigation {
+				position: absolute;
+				bottom: 40px;
+				right: 0;
+				cursor: default;
+				/*border: 1px solid red;*/
+				list-style-type: none;
+				-webkit-margin-before: 0;
+				-webkit-margin-after: 0;
+				-webkit-margin-start: 0;
+				-webkit-margin-end: 0;
+				-webkit-padding-start: 0;
+			}
+			
+			.content {
+				border: 1px solid red;
+				width: 90%;
+			}
+			
+			.site-header {
+				width: 10%;
+				border: 1px solid green;
+			}
+		</style>
+		<div>
+			<div class="site-header">
+				<ul class="main-navigation">
+					<a href="#">Overview</a>
+					<li>
+						<a href="#">About</a>
+					</li>
+					<li>
+						<a href="#">Contact</a>
+					</li>
+				</ul>
+			</div>
+			<div class="content">"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."</div>
+		</div>
+	</body>
+
+</html>
+<script type="text/javascript" src="js/jquery-1.11.1.js"></script>

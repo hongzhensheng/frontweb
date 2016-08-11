@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>Pinterest</title>
+	</head>
+	<style>
+		* {
+			padding: 0;
+			margin: 0;
+		}
+		
+		ul,
+		li {
+			list-style: none;
+		}
+		
+		#box {
+			width: 100%;
+		}
+		
+		ul {
+			width: 30%;
+			margin-right: 3.3%;
+			float: left;
+		}
+	</style>
+
+	<body>
+		<div id="box">
+			<ul>
+				<li>
+					<img src="../img/img-pubuliu/1.jpg" />
+					<p>111111111111111111</p>
+				</li>
+				<li>
+					<img src="../img/img-pubuliu/2.jpg" />
+					<p>222222222</p>
+				</li>
+				<li>
+					<img src="../img/img-pubuliu/3.jpg" />
+					<p>33333</p>
+				</li>
+			</ul>
+			<ul>
+				<li>
+					<img src="../img/img-pubuliu/4.jpg" />
+					<p>111111111111111111</p>
+				</li>
+				<li>
+					<img src="../img/img-pubuliu/5.jpg" />
+					<p>222222222</p>
+				</li>
+				<li>
+					<img src="../img/img-pubuliu/6.jpg" />
+					<p>33333</p>
+				</li>
+				<li>
+					<img src="../img/img-pubuliu/9.jpg" />
+					<p>33333</p>
+				</li>
+			</ul>
+			<ul>
+				<li>
+					<img src="../img/img-pubuliu/7.jpg" />
+					<p>111111111111111111</p>
+				</li>
+				<li>
+					<img src="../img/img-pubuliu/8.jpg" />
+					<p>222222222</p>
+				</li>
+				<li>
+					<img src="../img/img-pubuliu/9.jpg" />
+					<p>33333</p>
+				</li>
+			</ul>
+		</div>
+	</body>
+
+</html>
+<script type="text/javascript" src="../js/jquery-1.11.1.js"></script>
+<script>
+	window.onload = function() {
+		var aul = document.getElementsByTagName('ul');
+		var bool = true;
+		window.onscroll = function() {
+			var viewHeight = document.documentElement.clientHeight;
+			//兼容
+			var scrollY = document.documentElement.scrollTop || document.body.scrollTop;
+			console.log("scrollY:" + scrollY);
+			for (var i = 0; i < aul.length; i++) {
+				var ali = aul[i].getElementsByTagName('li');
+				var lastLi = ali[ali.length - 1];
+				if (posTop(lastLi) < (viewHeight + scrollY) && bool) {
+					bool = false;
+					/*$.ajax({
+						type:'get',
+						url:"../js/js-pubu/data.js",
+						success:success,
+						async:true
+					});*/
+					var data = {
+						code: 0,
+						list: [{
+							src: ['../img/img-pubuliu/1.jpg', '../img/img-pubuliu/2.jpg', '../img/img-pubuliu/3.jpg'],
+							title: ['2222', '2222', '2222']
+						}, {
+							src: ['../img/img-pubuliu/4.jpg', '../img/img-pubuliu/5.jpg', '../img/img-pubuliu/6.jpg'],
+							title: ['2222', '2222', '2222']
+						}, {
+							src: ['../img/img-pubuliu/7.jpg', '../img/img-pubuliu/8.jpg', '../img/img-pubuliu/9.jpg'],
+							title: ['2222', '2222', '2222']
+						}]
+					};
+					success(data);
+					function success(str) {
+						var json = str;
+						if (json.code) {
+							bool = true;
+						}
+						for (var i = 0; i < json.list.length; i++) {
+							var list = json.list[i];
+							for (var j = 0; j < list.src.length; j++) {
+								var oli = document.createElement('li');
+								oli.innerHTML = '<img src=' + list.src[j] + '/><p>' + list.title[j] + '</p>';
+								aul[i].appendChild(oli);
+							}
+						}
+					}
+				}
+			}
+		};
+
+		function posTop(obj) {
+			var top = 0;
+			while (obj) {
+				//console.log(top)
+				top += obj.offsetTop;
+				obj = obj.offsetParent;
+			}
+			return top;
+		};
+	};
+</script>

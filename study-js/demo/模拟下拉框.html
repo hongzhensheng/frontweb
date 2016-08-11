@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<title></title>
+	</head>
+	<style>
+		* {
+			margin: 0;
+			padding: 0;
+		}
+		
+		*,
+		*:before,
+		*:after {
+			-webkit-box-sizing: border-box;
+			-moz-box-sizing: border-box;
+			box-sizing: border-box;
+		}
+		
+		ul,
+		li {
+			list-style: none;
+		}
+		
+		.fl {
+			float: left;
+		}
+		
+		.fr {
+			float: right;
+		}
+		
+		.clearfix:after {
+			content: "";
+			display: block;
+			clear: both
+		}
+		/*用于清除浮动*/
+		
+		.clearfix {
+			zoom: 1
+		}
+		
+		.caret {
+			display: inline-block;
+			width: 0;
+			height: 0;
+			margin-left: 2px;
+			vertical-align: middle;
+			border-top: 8px solid #CCCCCC;
+			border-right: 4px solid transparent;
+			border-left: 4px solid transparent;
+		}
+		
+		.select-warp {
+			position: relative;
+		}
+		
+		.select-warp .select-text {
+			width: calc(100% - 15px);
+			display: inline-block;
+		}
+		
+		.select-warp .select-value-warp {
+			position: absolute;
+			width: 100%;
+			top: 100%;
+			left: 0;
+			z-index: 1000;
+			display: none;
+			float: left;
+			padding: 5px 0;
+			margin: 2px 0 0;
+			font-size: 14px;
+			text-align: left;
+			list-style: none;
+			background-color: #fff;
+			-webkit-background-clip: padding-box;
+			background-clip: padding-box;
+			border: 1px solid #ccc;
+			border: 1px solid rgba(0, 0, 0, .15);
+			border-radius: 4px;
+			-webkit-box-shadow: 0 6px 12px rgba(0, 0, 0, .175);
+			box-shadow: 0 6px 12px rgba(0, 0, 0, .175);
+			/*display: none;*/
+		}
+		
+		.select-warp .select-value-warp li {
+			display: block;
+			padding: 3px 20px;
+			clear: both;
+			font-weight: normal;
+			line-height: 1.42857143;
+			color: #333;
+			white-space: nowrap;
+		}
+		
+		.select-warp .select-value-warp li:hover {
+			background-color: #2096F9;
+			color: #fff;
+		}
+		
+		.btn {
+			display: inline-block;
+			padding: 6px 12px;
+			margin-bottom: 0;
+			font-size: 14px;
+			font-weight: normal;
+			line-height: 1.42857143;
+			text-align: left;
+			white-space: nowrap;
+			vertical-align: middle;
+			-ms-touch-action: manipulation;
+			touch-action: manipulation;
+			cursor: pointer;
+			-webkit-user-select: none;
+			-moz-user-select: none;
+			-ms-user-select: none;
+			user-select: none;
+			background-image: none;
+			border: 1px solid transparent;
+			border-radius: 4px;
+		}
+		
+		.btn {
+			width: 100%;
+			color: #333;
+			background-color: #fff;
+			border-color: #ccc;
+		}
+	</style>
+
+	<body>
+		<div class="container">
+			<div id="div1" class="div div1 select-warp">
+				<button class="btn clearfix" data-isopen="false"><span class="select-text fl">默认</span><span class="caret"></span></button>
+				<ul class="select-value-warp">
+					<li>1</li>
+					<li>2</li>
+					<li>3</li>
+				</ul>
+			</div>
+		</div>
+		<div class="container">
+			<div id="div2" class="div div2 select-warp">
+				<button class="btn clearfix" data-isopen="false"><span class="select-text fl">默认</span><span class="caret"></span></button>
+				<ul class="select-value-warp">
+					<li>1</li>
+					<li>2</li>
+					<li>3</li>
+				</ul>
+			</div>
+		</div>
+	</body>
+
+</html>
+
+<script>
+	var hasClass = (function() {
+		var div = document.createElement("div");
+		if ("classList" in div && typeof div.classList.contains === "function") {
+			return function(elem, className) {
+				return elem.classList.contains(className);
+			};
+		} else {
+			return function(elem, className) {
+				var classes = elem.className.split(/\s+/);
+				for (var i = 0; i < classes.length; i++) {
+					if (classes[i] === className) {
+						return true;
+					}
+				}
+				return false;
+			};
+		}
+	})();
+
+	function myGetElementsByClassName(parent, className, tagName) {
+		var ele = [],
+			o,
+			all;
+		console.log("parent:" + parent);
+		if (parent == null || parent == undefined) {
+			all = document.getElementsByTagName(tagName || "*");
+		} else {
+			all = parent.getElementsByTagName(tagName || "*");
+		}
+		console.log(all);
+		for (var i = 0; i < all.length; i++) {
+			/*if (all[i].className == className) {
+				ele[ele.length] = all[i];
+			}*/
+			if (hasClass(all[i],className)) {
+				ele[ele.length] = all[i];
+			}
+		}
+		return ele;
+	};
+	var selectBox = myGetElementsByClassName(null, 'select-warp', 'div')[0];
+	console.log("selectBox:" + selectBox);
+	var btn = myGetElementsByClassName(selectBox, 'btn', 'button')[0];
+	console.log("btn:" +typeof btn);
+	var ul = selectBox.getElementsByTagName('ul')[0];
+	var lis = ul.getElementsByTagName('li');
+	btn.onclick = function() {
+		click(this, ul)
+	};
+	for (var j = 0; j < lis.length; j++) {
+		lis[j].onclick = function() {
+			var txt = this.innerText;
+			btn.getElementsByTagName('span')[0].innerText = txt;
+			ul.style.display = 'none';
+			btn.setAttribute('data-isopen', false);
+		};
+	};
+
+	function click(o, ul) {
+		console.log("o:"+o)
+		var isopen = o.getAttribute('data-isopen');
+		if (isopen == 'false') {
+			ul.style.display = 'block';
+			o.setAttribute('data-isopen', true);
+		} else {
+			ul.style.display = 'none';
+			o.setAttribute('data-isopen', false);
+		}
+	};
+</script>
+<script type="text/javascript" src="../js/jquery-1.11.1.js"></script>
+<script>
+	var btn = $('#div2 .btn');
+	btn.click(function() {
+		console.log('5555555')
+		var isopen = btn.attr('data-isopen');
+		if (isopen == 'false') {
+			btn.next('.select-value-warp').css('display', 'block');
+			btn.attr('data-isopen', true);
+		} else {
+			btn.next('.select-value-warp').css('display', 'none');
+			btn.attr('data-isopen', false);
+		}
+	});
+	$('#div2 .select-value-warp li').each(function() {
+		var _this = $(this);
+		_this.click(function() {
+			var txt = _this.text();
+			btn.find('.select-text').text(txt);
+			btn.next('.select-value-warp').css('display', 'none');
+			btn.attr('data-isopen', false);
+		});
+	});
+</script>

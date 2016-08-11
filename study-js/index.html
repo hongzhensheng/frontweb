@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+		<script type="text/javascript" src="js/jquery-2.1.4.js"></script>
+		<script type="text/javascript" src="js/test-1.js"></script>
+		<style>
+			.loader5 {
+				display: inline-block;
+				width: 0;
+				height: 0;
+				border-left: 10px solid transparent;
+				border-right: 10px solid transparent;
+				border-bottom: 10px solid #4183D7;
+				border-top: 10px solid #F5AB35;
+				-webkit-animation: loader5 1.2s ease-in-out infinite alternate;
+				animation: loader5 1.2s ease-in-out infinite alternate;
+			}
+			
+			@keyframes loader5 {
+				from {
+					transform: rotate(0deg);
+				}
+				to {
+					transform: rotate(720deg);
+				}
+			}
+			
+			@-webkit-keyframes loader5 {
+				from {
+					-webkit-transform: rotate(0deg);
+				}
+				to {
+					-webkit-transform: rotate(720deg);
+				}
+			}
+		</style>
+	</head>
+
+	<body>
+		<script type="text/javascript">
+			$(document).ready(function() {
+				var a = 9,
+					b = 3;
+				console.log(Math.abs(-9.33)); //绝对值
+				console.log(Math.sqrt(9)); //平方根
+				/*下面是一个检查银行账户对象的构造函数*/
+				var account = new Checking(1500);
+				account.deposit(1000);
+				console.log(account.toString());
+				account.withdraw(1000);
+				console.log(account.toString());
+				account.withdraw(1800);
+				console.log(account.toString());
+			});
+		</script>
+	</body>
+
+</html>

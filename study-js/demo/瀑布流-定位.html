@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>Pinterest</title>
+	</head>
+	<style>
+		* {
+			padding: 0;
+			margin: 0;
+		}
+		
+		ul,
+		li {
+			list-style: none;
+		}
+		
+		#box {
+			width: 100%;
+			position: relative;
+		}
+		
+		ul li {
+			position: absolute;
+			width: 32%;
+			margin-right: 1%;
+		}
+		ul li>img,ul li p{
+			width: 100%;
+		}
+		ul li p{word-wrap: break-word;text-align: center;padding: 5px;}
+	</style>
+
+	<body>
+		<div id="box">
+			<ul>
+				<li>
+					<img src="../img/img-pubuliu/1.jpg" />
+					<p>111111111111111111</p>
+				</li>
+				<li>
+					<img src="../img/img-pubuliu/2.jpg" />
+					<p>222222222</p>
+				</li>
+				<li>
+					<img src="../img/img-pubuliu/3.jpg" />
+					<p>33333</p>
+				</li>
+				<li>
+					<img src="../img/img-pubuliu/4.jpg" />
+					<p>111111111111111111</p>
+				</li>
+				<li>
+					<img src="../img/img-pubuliu/5.jpg" />
+					<p>222222222</p>
+				</li>
+				<li>
+					<img src="../img/img-pubuliu/6.jpg" />
+					<p>33333</p>
+				</li>
+				<li>
+					<img src="../img/img-pubuliu/9.jpg" />
+					<p>33333</p>
+				</li>
+				<li>
+					<img src="../img/img-pubuliu/7.jpg" />
+					<p>111111111111111111</p>
+				</li>
+				<li>
+					<img src="../img/img-pubuliu/8.jpg" />
+					<p>222222222</p>
+				</li>
+				<li>
+					<img src="../img/img-pubuliu/9.jpg" />
+					<p>33333</p>
+				</li>
+			</ul>
+		</div>
+	</body>
+
+</html>
+<script>
+	window.onload = function() {
+		window.onresize=function(){
+			puBuLiu();
+		}
+		puBuLiu();
+		function puBuLiu() {
+			var ali = document.getElementsByTagName('li');
+			var width = document.documentElement.clientWidth;
+			var ah = {
+				L: [],
+				C: [],
+				R: []
+			};
+			for (var i = 0; i < ali.length; i++) {
+				threeCols(i);
+			}
+			function threeCols(i){
+				var iNow = i % 3;
+				switch (iNow) {
+					case 0:
+						ali[i].style.left = "0%";
+						ah.L.push(ali[i].offsetHeight);
+						setPos(i, ah.L, ali);
+						break;
+					case 1:
+						ali[i].style.left = "33%";
+						ah.C.push(ali[i].offsetHeight);
+						setPos(i, ah.C, ali);
+						break;
+					case 2:
+						ali[i].style.left = "66%";
+						ah.R.push(ali[i].offsetHeight);
+						var step = Math.floor(i / 3);
+						setPos(i, ah.R, ali);
+						break;
+				}
+			};
+			function setPos(index, hArr, obj) {
+				var step = Math.floor(index / 3);
+				if (!step) {
+					ali[index].style.top = 0;
+				} else {
+					var sum = 0;
+					for (var j = 0; j < step; j++) {
+						sum += hArr[j] + 5;
+					}
+					obj[index].style.top = sum + 'px';
+				}
+			};
+		};
+	};
+</script>

@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<style>
+		#div1 {
+			position: absolute;
+			width: 150px;
+			height: 150px;
+			background-color: orangered;
+		}
+	</style>
+
+	<body>
+		<div id="div1"></div>
+	</body>
+
+</html>
+<script type="text/javascript">
+	/*	window.onload = function() {
+				var oDiv = document.getElementById('div1');
+				oDiv.onmousedown = function(e) {
+					var oEvent = e || event;
+					var disX = oEvent.clientX - oDiv.offsetLeft;
+					var disY = oEvent.clientY - oDiv.offsetTop;
+					document.onmousemove = function(ev) {
+						var oEvent = ev || event;
+						oDiv.style.left = oEvent.clientX - disX + "px";
+						oDiv.style.top = oEvent.clientY - disY + "px";
+					};
+					document.onmouseup = function(ev) {
+						document.onmousemove = null
+						document.onmouseup=null;
+					};
+				};
+			};*/
+
+var oDiv = null;
+var disX=0,disY=0;
+
+window.onload = function() {
+	oDiv = document.getElementById('div1');
+	oDiv.onmousedown = fnDown;
+};
+
+function fnDown(e) {
+	var oEvent = e || event;
+	disX = oEvent.clientX - oDiv.offsetLeft;
+	disY = oEvent.clientY - oDiv.offsetTop;
+	document.onmousemove = fnMove;
+	document.onmouseup = fnUp;
+};
+
+function fnMove(ev) {
+	var oEvent = ev || event;
+	oDiv.style.left = oEvent.clientX - disX +"px";
+	oDiv.style.top = oEvent.clientY - disY + "px";
+};
+
+function fnUp() {
+	document.onmousemove = null
+	document.onmouseup = null;
+};
+
+</script>

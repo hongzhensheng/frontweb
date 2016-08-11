@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+		<script type="text/javascript" src="js/jquery-2.1.4.js"></script>
+		<style>
+			body{
+				font-size: 24px;
+			}
+			.loader5 {
+				display: inline-block;
+				width: 0;
+				height: 0;
+				border-left: 10px solid transparent;
+				border-right: 10px solid transparent;
+				border-bottom: 10px solid #4183D7;
+				border-top: 10px solid #F5AB35;
+				-webkit-animation: loader5 1.2s ease-in-out infinite alternate;
+				animation: loader5 1.2s ease-in-out infinite alternate;
+			}
+			
+			@keyframes loader5 {
+				from {
+					transform: rotate(0deg);
+				}
+				to {
+					transform: rotate(720deg);
+				}
+			}
+			
+			@-webkit-keyframes loader5 {
+				from {
+					-webkit-transform: rotate(0deg);
+				}
+				to {
+					-webkit-transform: rotate(720deg);
+				}
+			}
+		</style>
+	</head>
+
+	<body>
+		<script type="text/javascript">
+			$(document).ready(function() {
+				var con = document.getElementById('content');
+				/**定义数组方法*/
+				var arr0 = new Array(1, 2, 3, 8, 9),
+					arr1 = [1, 2, 3, 8, 9],
+					arr3 = 1;
+				console.log('' + Array.isArray(arr0) + ';' + Array.isArray(arr1) + ';' + Array.isArray(arr3)); //判断是否为数组的方法
+				//但是，当把一个数组赋给另外一个数组时，只是为被赋值的数组增加了一个新的引用。当 你通过原引用修改了数组的值，另外一个引用也会感知到这个变化。下面的代码展示了这 种情况：
+				var nums = [];
+				for (var i = 0; i < 10; ++i) {
+					nums[i] = i + 1;
+				}
+				var samenums = nums; //这种行为被称为浅复制，新数组依然指向原来的数组
+				nums[0] = 400;
+				console.log('浅复制:' + samenums[0]); // 显示 400
+				//深复制--将 原数组中的每一个元素都复制一份到新数组中
+				function copy(arr1, arr2) {
+					for (var i = 0; i < arr1.length; ++i) {
+						arr2[i] = arr1[i];
+					}
+				};
+				var nums = [];
+				for (var i = 0; i < 10; ++i) {
+					nums[i] = i + 1;
+				}
+				var samenums = [];
+				copy(nums, samenums);
+				nums[0] = 400;
+				console.log('深复制:' + samenums[0]); // 显示 1
+				//存取函数
+				function fn1() {
+					/*JavaScript 提供了一组用来访问数组元素的函数，叫做存取函数，这些函数返回目标数组 的某种变体*/
+					//--indexOf():函数是最常用的存取函数之一，用来查找传进来的参数在目标数组中是否存在。 如果目标数组包含该参数，就返回该元素在数组中的索引；如果不包含，就返回 -1
+					//如果数组中包含多个相同的元素，indexOf() 函数总是返回第一个与参数相同的元素的索 引。
+					//有另外一个功能与之类似的函数：lastIndexOf()，该函数返回相同元素中最后一个元 素的索引，如果没找到相同元素，则返回 -1
+					var names = ["David", "Cynthia", "Raymond", "Clayton", "Jennifer"];
+					var name = 'Raymond';
+					var position = names.indexOf(name);
+					if (position >= 0) {
+						console.log("Found " + name + " at position " + position);
+					} else {
+						console.log(name + " not found in array.");
+					}
+					var names = ["David", "Mike", "Cynthia", "Raymond", "Clayton", "Mike", "Jennifer"];
+					var name = "Mike";
+					var firstPos = names.indexOf(name);
+					console.log("First found " + name + " at position " + firstPos);
+					var lastPos = names.lastIndexOf(name);
+					console.log("Last found " + name + " at position " + lastPos);
+					/**数组的字符串表示*/
+					//有两个方法可以将数组转化为字符串：join() 和 toString()。这两个方法都返回一个包含 数组所有元素的字符串，各元素之间用逗号分隔开				
+					var names = ["David", "Cynthia", "Raymond", "Clayton", "Mike", "Jennifer"];
+					var namestr = names.join();
+					console.log('Join:' + namestr); // David,Cynthia,Raymond,Clayton,Mike,Jennifer 
+					namestr = names.toString();
+					console.log('toString:' + namestr); // David,Cynthia,Raymond,Clayton,Mike,Jennifer
+					/**由已有数组创建新数组 */
+					//concat() 和 splice() 方法允许通过已有数组创建新数组。
+					//--concat 方法可以合并多个数组 创建一个新数组，该方法的发起者是一个数组，参数是另一个数 组。作为参数的数组，其中的所有元素都被连接到调用 concat() 方法的数组后面
+					//--splice() 方法截取一个数组的子集创建一个新数组。方法从现有数组里截取一个新数组。该方法的第一个参数是截取的起始索引，第 二个参数是截取的长度
+					//concat()
+					var cis = ["Mike", "Clayton", "Terrill", "Danny", "Jennifer"];
+					var dmp = ["Raymond", "Cynthia", "Bryan"];
+					var itDiv = cis.concat(dmp);
+					console.log('cis.concat(dmp):' + itDiv);
+					itDiv = dmp.concat(cis);
+					console.log('dmp.concat(cis):' + itDiv);
+					//splice()
+					var itDiv = ["Mike", "Clayton", "Terrill", "Raymond", "Cynthia", "Danny", "Jennifer"];
+					var dmpDept = itDiv.splice(3, 3);
+					var cisDept = itDiv;
+					console.log('splice():' + dmpDept); // Raymond,Cynthia,Danny print(cisDept); // Mike,Clayton,Terrill,Jennifer
+				};
+				//
+				function print(str) {
+					var old = con.innerHTML;
+					con.innerHTML= old + '<br/>' + str;
+				};
+				//
+				function init() {
+					fn1();
+				};
+				init();
+			});
+		</script>
+		<div class="loader5"></div>
+		<br />
+		<div id="content"></div>
+	</body>
+
+</html>

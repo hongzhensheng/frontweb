@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>简单的手风琴效果</title>
+	</head>
+	<style>
+		.block {
+			position: absolute;
+			top: 30px;
+			left: 100px;
+			margin-top: 50px;
+			width: 200px;
+			height: 100px;
+			background-color: olivedrab;
+		}
+		.block2{
+			left: 350px;
+			background-color: mediumvioletred;
+		}
+		.accordion-warp {
+			position: absolute;
+			top: 50%;
+			left: 100px;
+		}
+		
+		.accordion {
+			position: relative;
+			text-align: center;
+			color: #fff;
+		}
+		
+		.accordion .accordion-header {
+			background-color: orange;
+			padding: 5px;
+		}
+		
+		.accordion .content {
+			padding: 5px;
+			margin-top: 2px;
+			background-color: blueviolet;
+		}
+	</style>
+
+	<body>
+
+		<input id="slideup-btn" type="button" value="slideUp" />
+		<input id="slidedown-btn" type="button" value="slideDown" />
+		<input id="fadeToggle-btn" type="button" value="fadeToggle" />
+		<input id="slideToggle-btn" type="button" value="slideToggle" />
+		
+		<div class="block block1"></div>
+		<div class="block block2"></div>
+
+		<div class="accordion-warp">
+			<div class="accordion">
+				<div class="accordion-header">accordion-header</div>
+				<div class="content">1</div>
+				<div class="content">2</div>
+				<div class="content">3</div>
+			</div>
+		</div>
+	</body>
+
+</html>
+<script type="text/javascript" src="../js/jquery-2.1.4.js"></script>
+<script>
+	// Close all panels
+	$('.accordion').find('.content').hide();
+	// Accordion
+	// 一
+	$('.accordion').find('.accordion-header').click(function() {
+		var next = $(this).next();
+		next.slideToggle('fast');
+		//$('.content').not(next).slideUp('fast');
+		return false;
+	});
+	// 二
+	/*$('.accordion').find('.accordion-header').click(function() {
+		$('.content').slideToggle('fast');
+		return false;
+	});*/
+	/**/
+	$('#slideup-btn').click(function() {
+		$('.block1').slideUp('slow');
+	});
+	$('#slidedown-btn').click(function() {
+		$('.block1').slideDown('slow');
+	});
+	$('#fadeToggle-btn').click(function() {
+		$('.block2').fadeToggle('slow');
+	});
+	$('#slideToggle-btn').click(function() {
+		$('.block2').slideToggle('slow');
+	});
+</script>
