@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+
+	<body>
+		<div class="loading-spinner-wrap">
+			<div class="loading-spinner">
+				<span class="screen-reader-text">Loading...</span>
+			</div>
+		</div>
+	</body>
+
+</html>
+<style type="text/css">
+	@-webkit-keyframes loading-spinner {
+		0% {
+			top: 0;
+			-webkit-transform: rotate(0deg);
+			transform: rotate(0deg)
+		}
+		50% {
+			top: -3.8em;
+			-webkit-transform: rotate(-180deg);
+			transform: rotate(-180deg)
+		}
+		100% {
+			top: 0;
+			-webkit-transform: rotate(-360deg);
+			transform: rotate(-360deg)
+		}
+	}
+	
+	@keyframes loading-spinner {
+		0% {
+			top: 0;
+			-webkit-transform: rotate(0deg);
+			transform: rotate(0deg)
+		}
+		50% {
+			top: -3.8em;
+			-webkit-transform: rotate(-180deg);
+			transform: rotate(-180deg)
+		}
+		100% {
+			top: 0;
+			-webkit-transform: rotate(-360deg);
+			transform: rotate(-360deg)
+		}
+	}
+	
+	.loading-spinner-wrap {
+		height: 20em;
+		overflow: hidden;
+	}
+	
+	* {
+		margin: 0;
+		padding: 0;
+		box-sizing: border-box;
+	}
+	
+	.loading-spinner {
+		height: 1.2em;
+		width: 1.2em;
+		border-radius: 50%;
+		background: #666;
+		display: block;
+		margin: 10em auto;
+		position: absolute;
+		left: 50%;
+		-webkit-animation: loading-spinner 2s ease infinite;
+		animation: loading-spinner 2s ease infinite;
+	}
+	
+	.loading-spinner::before,
+	.loading-spinner::after {
+		content: '';
+		display: block;
+		position: absolute;
+		height: inherit;
+		width: inherit;
+		background: inherit;
+		border-radius: inherit;
+		-webkit-animation: loading-spinner 2s ease infinite;
+		animation: loading-spinner 2s ease infinite
+	}
+	
+	.loading-spinner::before {
+		left: -2.3em
+	}
+	
+	.loading-spinner::after {
+		left: 2.3em
+	}
+	
+	.screen-reader-text {
+		position: absolute;
+		visibility: ;
+	}
+</style>

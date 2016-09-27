@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<div id="div1"></div>
+		<a href="../../study-css/img/IMG_39688.JPG">我是一张图片</a>
+	</body>
+</html>
+<script src="../js/jquery-2.1.4.js"></script>
+<script>
+	$("#div1").hide();
+	$(document).ready(function(){
+		$("#div1").load("./jq-load-2.html #container2",null,function() {
+			$("#div1").fadeIn('slow');
+		});
+	});
+</script>

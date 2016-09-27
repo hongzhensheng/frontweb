@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1">
+		<title></title>
+	</head>
+	<style>
+		html,body{width: 100%;}
+		*{padding: 0;margin: 0;}
+		ul,li{list-style: none;}
+		.warp{overflow:hidden;margin-bottom:20px;position:relative;width: 100%;background-color: #00A2EC;
+			-webkit-box-sizing: border-box;-moz-box-sizing: border-box;box-sizing: border-box;
+			padding:10px;/*-webkit-background-origin:border-box;background-origin:border-box;*/}
+		.warp *,
+		.warp:before,
+		.warp:after{-webkit-box-sizing: inherit;-moz-box-sizing: inherit;box-sizing: inherit;}
+		.br{word-break: break-all;}
+		.fl{float: left;}
+		.fr{float: right;}
+		.clearfix:after{content:"";display: block;clear: both} /*用于清除浮动*/
+		.clearfix{zoom:1}
+	</style>
+	<body>
+		<!-- 方法一 -->
+		<div class="warp warp1 clearfix">
+			<div class="left br">leftleftleftleftleftleftleftleft</div>
+			<div class="right">right-----right-----right-----right-----right-----right-----right-----right</div>
+		</div>
+		<style>
+			.warp1 .left{position:absolute;width:80px;background-color: #7ABA7B;}
+			.warp1 .right{background-color: #D59392;margin-left: 85px;}
+			/*.warp1 >div{margin-bottom: -999px;padding-bottom: 999px;}*/
+		</style>
+		<!-- 方法二 -->
+		<div class="warp warp2 clearfix">
+			<div class="left fl br">leftleftleftleftleftleftleftleft</div>
+			<div class="right fl">《八月三日夜作》年代:唐 作者: 白居易;'露白月微明，天凉景物清。草头珠颗冷，楼角玉钩生。气爽衣裳健，风疏砧杵鸣。夜衾香有思，秋簟冷无情。梦短眠频觉，宵长起暂行。烛凝临晓影，虫怨欲寒声。槿老花先尽，莲凋子始成。四时无了日，何用叹衰荣。'</div>
+		</div>
+		<style>
+			.warp2 .left{width:80px;background-color: #004499;}
+			.warp2 .right{width:calc(100% - 85px);width:-moz-calc(100% - 85px);width:-webkit-calc(100% - 85px); background-color: #0F9568;margin-left: 5px;}
+			.warp2 >div{margin-bottom: -999px;padding-bottom: 999px;}
+		</style>
+		<!-- 方法三 -->
+		<div class="warp warp3 clearfix">
+			<div class="fl br" style="width:100%;">
+				<p style="margin-right:170px;">“故人具鸡黍，邀我至田家。”这一开头似乎就象是日记本上的一则记事。故人“邀”而我“至”，文字上毫无渲染，招之即来，简单而随便。这正是不用客套的至交之间所可能有的形式。而以“鸡黍”相邀，既显出田家特有风味，又见待客之简朴。正是这种不讲虚礼和排场的招待，朋友的心扉才往往更能为对方敞开。这个开头，不甚着力，平静而自然，但对于将要展开的生活内容来说，却是极好的导入，显示了气氛特征，又有待下文进一步丰富、发展。</p>
+			</div>
+			<img width="150px" class="fl" style="margin-left:-150px;" src="../../study-css/img/IMG_3969.JPG"/>
+		</div>
+		<style>
+			.warp3 .left{width:80px;background-color: #004499;}
+			.warp3 .right{width:calc(100% - 85px);width:-moz-calc(100% - 85px);width:-webkit-calc(100% - 85px); background-color: #0F9568;margin-left: 5px;}
+		</style>
+		
+		<div class="warp warp4 history-list-box">
+			<div class="history-list">
+				<div class="history-item">
+					<div class="item-left">
+						<div class="item-left-text br">CoreJava初级</div>
+					</div>
+					<div class="item-right">
+						<ul class="clearfix">
+							<li class="sub-item">
+								<div class="subitem-logo"></div>
+								<div class="subitem-title">Title one</div>
+							</li>
+							<li class="sub-item">
+								<div class="subitem-logo"></div>
+								<div class="subitem-title">Title one</div>
+							</li>
+							<li class="sub-item">
+								<div class="subitem-logo"></div>
+								<div class="subitem-title">Title one</div>
+							</li>
+						</ul>
+					</div>
+				</div>
+				<div class="history-item">
+					<div class="item-left">
+						<div class="item-left-text br">CoreJavaCoreJavaCoreJava</div>
+					</div>
+					<div class="item-right">
+						<ul class="clearfix">
+							<li class="sub-item">
+								<div class="subitem-logo"></div>
+								<div class="subitem-title">Title one</div>
+							</li>
+							<li class="sub-item">
+								<div class="subitem-logo"></div>
+								<div class="subitem-title">Title one</div>
+							</li>
+							<li class="sub-item">
+								<div class="subitem-logo"></div>
+								<div class="subitem-title">Title one</div>
+							</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+		<style>
+			.warp4 .history-item{width:100%;overflow:hidden;border: 1px solid #223344;position: relative;}
+			/*.history-item ~ .history-item{margin-top:15px;}*/
+			.warp4 .history-item{border-bottom:1px dashed #fff;}
+			.warp4 .history-item .item-left{width: 120px;position: absolute;background-color:#004499;}
+			.warp4 .history-item .item-right{margin-left: 130px;}
+			.warp4 .sub-item{background-color:#C0C0C0;float:left;}
+			.warp4 .sub-item ~ .sub-item{margin-left:5px;}
+		</style>
+		
+		<div class="warp warp5 history-list-box">
+			<div class="history-list">
+				<div class="history-item">
+					<div class="item-left">
+						<div class="item-left-text br">CoreJava初级</div>
+					</div>
+					<div class="item-right">
+						<ul class="clearfix">
+							<li class="sub-item">
+								<div class="subitem-logo"></div>
+								<div class="subitem-title">Title one</div>
+							</li>
+							<li class="sub-item">
+								<div class="subitem-logo"></div>
+								<div class="subitem-title">Title one</div>
+							</li>
+							<li class="sub-item">
+								<div class="subitem-logo"></div>
+								<div class="subitem-title">Title one</div>
+							</li>
+						</ul>
+					</div>
+				</div>
+				<div class="history-item">
+					<div class="item-left">
+						<div class="item-left-text br">CoreJavaCoreJavaCoreJava</div>
+					</div>
+					<div class="item-right">
+						<ul class="clearfix">
+							<li class="sub-item">
+								<div class="subitem-logo"></div>
+								<div class="subitem-title">Title one</div>
+							</li>
+							<li class="sub-item">
+								<div class="subitem-logo"></div>
+								<div class="subitem-title">Title one</div>
+							</li>
+							<li class="sub-item">
+								<div class="subitem-logo"></div>
+								<div class="subitem-title">Title one</div>
+							</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+	</body>
+</html>

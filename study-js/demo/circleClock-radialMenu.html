@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>圆形钟和径向菜单</title>
+		<link rel="stylesheet" href="../css/circleClock-radialMenu.css" />
+	</head>
+
+	<body>
+		<h2>径向菜单</h2>
+		<div class="warp">
+			<div id="radial-menu1" class="radial-menu">
+				<a class="main-menu">menu</a>
+				<nav>
+					<a class="menu-item">1</a>
+					<a class="menu-item">2</a>
+					<a class="menu-item">3</a>
+					<a class="menu-item">4</a>
+					<a class="menu-item">5</a>
+					<a class="menu-item">6</a>
+				</nav>
+			</div>
+		</div>
+		<div class="warp">
+			<div id="radial-menu2" class="radial-menu">
+				<a class="main-menu">menu</a>
+				<nav>
+					<a class="menu-item">1</a>
+					<a class="menu-item">2</a>
+					<a class="menu-item">3</a>
+					<a class="menu-item">4</a>
+					<a class="menu-item">5</a>
+					<a class="menu-item">6</a>
+					<a class="menu-item">7</a>
+					<a class="menu-item">8</a>
+				</nav>
+			</div>
+		</div>
+		<hr />
+		<h2 style="margin-top:30px;">圆形时钟</h2>
+		<div class="warp">
+			<div class="clock">
+				<ul class="line-min"></ul>
+				<ul class="line-hour"></ul>
+				<ul class="number"></ul>
+				<ul class="pointer">
+					<li class="hour"></li>
+					<li class="min"></li>
+					<li class="second"></li>
+					<li class="circle"></li>
+				</ul>
+			</div>
+		</div>
+	</body>
+
+</html>
+<script type="text/javascript" src="../js/jquery-1.11.1.js"></script>
+<script type="text/javascript" src="../js/circleClock-radialMenu.js"></script>
+
+<script type="text/javascript">
+	radialMenu($('#radial-menu1'), 90, -270);
+	radialMenu($('#radial-menu2'), 90, -180);
+	// clock
+	clock();
+</script>
