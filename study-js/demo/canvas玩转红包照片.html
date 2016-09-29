@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>canvas玩转红包照片</title>
+		<link rel="stylesheet" type="text/css" href="../css/global.css" />
+	</head>
+
+	<body>
+		<div class="warp">
+			<div class="box">
+				<img class="img" src="../img/IMG_3969.JPG" />
+				<canvas id="canvas"></canvas>
+			</div>
+		</div>
+		<style>
+			.box{width:500px;height:600px;margin:0 auto;position: relative;}
+			.img,
+			#canvas{position: absolute;left: 0;top: 0;}
+			.img{width: 100%;height:100%;-webkit-filter: blur(20px);-moz-filter: blur(20px);-ms-filter: blur(20px);filter: blur(20px);}
+		</style>
+	</body>
+
+
+</html>
+<script type="text/javascript" src="../js/jquery-1.11.1.js"></script>
+<script type="text/javascript">
+	var canvasW = 500,
+		canvasH = 600;
+	var canvas = document.getElementById("canvas"),
+		context = canvas.getContext("2d");
+	_init();
+	function _init() {
+		canvas.width = canvasW, 
+		canvas.height = canvasH;
+	}
+	var clippingRegion={x:400,y:200,r:50};//定义剪辑区域
+	var img=new Image();
+	img.src="../img/IMG_3969.JPG";
+	img.onload=function(e){
+		initCanvas();
+	}
+	function initCanvas(){
+		draw(img,clippingRegion);
+	}
+	function setClippingRegion(){
+		context.beginPath();
+		context.arc(clippingRegion.x,clippingRegion.y,clippingRegion.r,0,2*Math.PI,false);
+		context.clip();
+	}
+	function draw(imgObj,clippingRegion){
+		context.clearRect(0,0,canvas.width,canvas.height);//每次 绘制进行清空
+		context.save();// 存储画布的当前状态
+		setClippingRegion(clippingRegion);// 设置剪辑区域
+		context.drawImage(imgObj,0,0);
+		context.restore();// 恢复状态
+	}
+</script>
