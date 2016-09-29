@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>js判断鼠标从什么方向进入</title>
+		<link rel="stylesheet" type="text/css" href="../css/global.css" />
+	</head>
+
+	<body>
+		<div class="warp">
+			<h2>s判断鼠标从什么方向进入</h2>
+			<div class="block-box clearfix">
+				<div class="block item-col-4">
+					<div class="block-sub">block sub</div>
+				</div>
+				<div class="block item-col-4">
+					<div class="block-sub">block sub</div>
+				</div>
+				<div class="block item-col-4">
+					<div class="block-sub">block sub</div>
+				</div>
+				<div class="block item-col-4">
+					<div class="block-sub">block sub</div>
+				</div>
+				<div class="block item-col-4">
+					<div class="block-sub">block sub</div>
+				</div>
+				<div class="block item-col-4">
+					<div class="block-sub">block sub</div>
+				</div>
+			</div>
+			<br />
+			<span id="text-con"></span>
+		</div>
+		
+		<style type="text/css">
+			.item-col-4 {width: 25%;}
+			.item-col-3 {width: 33.3333%;}
+			.block-box {}
+			/*.block {padding: 50%;}*/
+			.block {height: 180px;background-color: #CCCCCC;position: relative;overflow: hidden;float:left;}
+			.block{margin-right: 5px;margin-bottom: 5px;}
+			.block-sub{position: absolute;width:100%;height:100%;font-size:20px;line-height:150px;text-align:center;background-color:#2C2C2C;opacity:0.75;top:-100%;left:0;
+			transition: all 0.5s;-webkit-transition: all 0.5s;}
+		</style>
+	</body>
+</html>
+<script type="text/javascript" src="../js/jquery-1.11.1.js"></script>
+<script type="text/javascript">
+	$(".block").each(function(i){
+		hoverDir($(this));
+	});
+	$.each($(".block"),function(i) {
+		console.log($(this));
+	});
+
+	function hoverDir(elem) {
+		elem.bind("mouseenter mouseleave", function(e) {
+			var seft = $(this),
+				w = seft.width(),
+				h = seft.height(),
+				x = (e.pageX - seft.offset().left - w / 2) * (w > h ? (h / w) : 1),
+				y = (e.pageY - seft.offset().top - h / 2) * (h > w ? (w / h) : 1);
+			var n = (((Math.atan2(y, x) * (180 / Math.PI)) + 180) / 90) + 3;
+			var direction = Math.round(n) % 4; //direction的值为“0,1,2,3”分别对应着“上，右，下，左” 
+			var timer,
+				time = 10,
+				eEventType = e.type,
+				blockSub = seft.children('.block-sub'),
+				styleFrom = _getStyle(direction);
+	
+			if(eEventType == 'mouseenter') {
+				blockSub.hide().css(styleFrom.from);
+				timer = setTimeout(function() {
+					blockSub.show(0, function() {
+						blockSub.css(styleFrom.to);
+					});
+				}, time);
+				$("#text-con").html("测试：" + direction + '进入');
+			} else {
+				clearTimeout(timer);
+				blockSub.stop().css(styleFrom.from);
+				$('#text-con').html("测试：" + direction + '离开');
+			}
+		});
+	}
+
+	function _getStyle(direction) {
+		var fromStyle, toStyle,
+			slideFromTop = {"left":"0","top":"-100%"},
+			slideFromBotton={"left":"0","top":"100%"},
+			slideFromleft={"left":"-100%","top":"0"},
+			slideFromRight={"left":"100%","top":"0"},
+			slideTop={"top":"0px"},
+			slideLeft={"left":"0px"};
+		switch (direction){
+			case 0:
+				fromStyle=slideFromTop,toStyle=slideTop;
+				break;
+			case 1:
+				fromStyle=slideFromRight,toStyle=slideLeft;
+				break;
+			case 2:
+				fromStyle=slideFromBotton,toStyle=slideTop;
+				break;
+			case 3:
+				fromStyle=slideFromleft,toStyle=slideLeft;
+				break;
+		}
+		return{from:fromStyle,to:toStyle};
+	}
+</script>

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>中英切换</title>
+		<script type="text/javascript">
+			//為系統追加replaceAll方法 
+			String.prototype.replaceAll = function(oldStr, newStr) {
+				return this.replace(new RegExp(oldStr, "gm"), newStr);
+			}
+		</script>
+		<script src="../js/jquery-1.11.1.js" type="text/javascript" charset="utf-8"></script>
+		<script src="../js/cookieUtil.js"></script>
+		<script src="../js/js-EnToCh/dict.js"></script>
+		<script type="text/javascript">
+			$(function() {
+				//根據cookie切換語言種類
+				var strLang=getCookie("somoveLanguage");
+				if( strLang== "en") {
+					/*var body1 = setEnglish($("#body1").html());
+					var body2 = setEnglish($("#body2").html());
+					$("#body1").html(body1);
+					$("#body2").html(body2);*/
+					var body1 = setEnglish($("body").html());
+					//var body2 = setEnglish(body1);
+					console.log(new Date().getTime());
+					$("body").html(body1);
+					$("#ddlSomoveLanguage option[value='"+strLang+"']").attr("selected","selected");
+				}
+				$("#btn1").click(function(){
+					$("body").append("按钮");
+				});
+			});
+
+			function chgLang() {
+				setCookie("somoveLanguage", $("#ddlSomoveLanguage").children('option:selected').val());
+				//alert(getCookie("somoveLanguage"));
+				location.reload(true);
+			}
+		</script>
+	</head>
+<style>
+	.btn{display: inline-block;font-size:16px;line-height:1.5;background-color:#8C8C8C;padding:5px 10px;cursor:pointer;}
+</style>
+	<body>
+		<select id="ddlSomoveLanguage" onchange="return chgLang();">
+			<option value="ch">中文</option>
+			<option value="en">英文</option>
+		</select>
+		<h2>测试页我们一起吃饭去!</h2>
+		<h3>《八月三日夜作》年代:唐 作者: 白居易;'露白月微明，天凉景物清。草头珠颗冷，楼角玉钩生。气爽衣裳健，风疏砧杵鸣。夜衾香有思，秋簟冷无情。梦短眠频觉，宵长起暂行。烛凝临晓影，虫怨欲寒声。槿老花先尽，莲凋子始成。四时无了日，何用叹衰荣。</h3>
+		<div id="btn1" class="btn">按钮</div>
+	</body>
+
+</html>
