@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>完美的句号</title>
+	</head>
+	<body>
+		<div class="circle">
+			<div class="semicircle eye eye1"></div>
+			<div class="semicircle eye eye2"></div>
+			<div class="semicircle mouth"></div>
+		</div>
+		<div class="desc">By Hong</div>
+		<style>
+			/* latin-ext */
+			
+			@font-face {
+				font-family: 'Ruthie';
+				font-style: normal;
+				font-weight: 400;
+				src: local('Ruthie'), local('Ruthie-Regular'), /*http://fontstatic.useso.com/s/ruthie/v6/Tdr3uiFXZJES_xwnu1bdu_esZW2xOQ-xsNqO47m55DA.woff2*/
+				url(../fonts/Tdr3uiFXZJES_xwnu1bdu_esZW2xOQ-xsNqO47m55DA.woff2) format('woff2');
+				unicode-range: U+0100-024F, U+1E00-1EFF, U+20A0-20AB, U+20AD-20CF, U+2C60-2C7F, U+A720-A7FF;
+			}
+			/* latin */
+			
+			@font-face {
+				font-family: 'Ruthie';
+				font-style: normal;
+				font-weight: 400;
+				src: local('Ruthie'), local('Ruthie-Regular'), url(../fonts/rNoM5619GlhqKyeG2oawaw.woff2) format('woff2');
+				unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215, U+E0FF, U+EFFD, U+F000;
+			}
+			
+			*{padding: 0;margin: 0;}
+			html,body{width: 100%;height: 100%;}
+			.circle{position: absolute;left: 0;right: 0;top: 0;bottom: 0;margin:auto; width: 500px;height:500px;border: 50px solid #000;border-radius: 50%;-moz-border-radius: 50%;-webkit-border-radius: 50%;}
+			.desc{font-family: "Ruthie";font-weight:800;font-size:24px;position: absolute;bottom: 25px;left: 50%;margin-left: 250px;}
+			.semicircle{border:1px solid #000000;border-radius: 50%;-moz-border-radius: 50%;-webkit-border-radius: 50%;}
+			.eye,
+			.mouth{position: absolute;width: 100px;height: 100px;border-bottom-color:transparent;border-left-color:transparent;-webkit-transform: rotate(-45deg);transform: rotate(-45deg);}
+			.eye1{left:75px;top:150px;}
+			.eye2{left:315px;top:150px;}
+			.mouth{bottom: 50px;left:195px;width: 150px;-webkit-transform: rotate(135deg) ;transform: rotate(135deg) ;transform-origin: center;-webkit-transform-origin:center center;}
+		</style>
+	</body>
+</html>
