@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>去掉一组整型数组重复的值</title>
+	</head>
+
+	<body>
+		<p>去掉一组整型数组重复的值，这道问题出现在诸多的前端面试题中，主要考察个人对Object的使用，利用key来进行筛选。</p>
+	</body>
+
+</html>
+<script type="text/javascript">
+	//
+	var unique = function(arr) {
+			var hashTable = {};
+			var data = [];
+			for(var i = 0, l = arr.length; i < l; i++) {
+				if(!hashTable[arr[i]]) {
+					hashTable[arr[i]] = true;
+					data.push(arr[i]);
+				}
+			}
+			return data;
+		}
+		//module.exports=unique;
+
+	/*var hashTable={13:2};
+	
+	console.log(hashTable);
+	console.log(arr[2]);
+	console.log(!hashTable[arr[2]]);*/
+	var arr = [1, 13, 14, 24, 11, 13, 14, 1, 2, 3];
+	console.log(unique(arr));
+</script>

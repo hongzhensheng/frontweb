@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>使用canvas 绘制一个有限度的斐波那契数列的曲线</title>
+	</head>
+
+	<body>
+		<p>斐波那契数列，又称黄金分割数列，指的是这样一个数列：0、1、1、2、3、5、8、13、21、34、……在数学上，斐波纳契数列主要考察递归的调用。</p>
+		<p>我们一般都知道定义F（1）=1，F（n）=F(n-1)+F(n-2)（n≥2，n∈N*）;</p>
+		<p>
+			<a target="_blank" href="http://codepen.io/Jack_Pu/pen/LRaxZB">demo</a>
+		</p>
+		<canvas id="canvas"></canvas>
+	</body>
+
+</html>
+<script type="text/javascript" src="js/tools.js"></script>
+<script type="text/javascript">
+	//生成斐波那契数组的方法
+	function getFiboArr(n) {
+		let i = 0,
+			temp = [];
+		while(i < n) {
+			if(i <= 1) {
+				temp.push(i);
+			} else {
+				temp.push(temp[i - 1] + temp[i - 2]);
+			}
+			i++;
+		}
+		return temp;
+	}
+
+	//
+	var cnavas = document.getElementById("canvas");
+	var context = canvas.getContext("2d");
+
+	function init() {
+		canvas.width = 1000;
+		canvas.height = 500;
+		drawArc();
+	}
+
+	function drawArc() {
+		var arr = getFiboArr(9);
+		context.strokeStyle = "#000000";
+		for(var i = 0, l = arr.length; i < l; i++) {
+			var v=arr[i]*10;
+			context.beginPath();
+			context.arc(v,v,v,0,Math.PI,true);
+			context.stroke();
+		}
+		
+	}
+	init();
+	write("<br>"+getFiboArr(10));
+</script>

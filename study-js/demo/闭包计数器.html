@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>闭包计数器</title>
+	</head>
+	<body>
+		<ul>
+			<li>春</li>
+			<li>夏</li>
+			<li>秋</li>
+			<li>冬</li>
+		</ul>
+		<script>
+			for(var i=0,lis=document.getElementsByTagName("li"),len=lis.length;i<len;i++){
+				lis[i].index=i;
+				lis[i].onclick=function(){
+					alert(this.index);
+				};
+			}
+		</script>
+	</body>
+</html>
+<script>
+	/**
+	 * 闭包计数器
+	 * 多人开发js程序，需要一个全局的计数器
+	 * --多个人的函数共用一个计数器，计数器一直增长
+	 * 
+	 * 解决办法:
+	 * 1、设立一个全局
+	 * window.cnt=0;
+	 * 调用    ++window.cnt;
+	 * 
+	 * 这个办法可行，但是污染了全局变量
+	 * 其次，引入多人的js程序，别人的程序里也有一个window.cnt="hello"
+	 * 改计数器就损坏了(所以避免使用全局变量)
+	 * 
+	 * 2、闭包维护一个被人污染不到的变量，做计数器
+	 */
+	
+	function counter(){
+		var cnt=0;
+		var cnter= function (){
+			return ++cnt;
+		}
+		return cnter;
+	}
+	
+	//简化
+	var int2=(function(){
+		var cnt=0;
+		return function(){
+			return ++cnt;
+		}
+	})()
+	
+	var int=counter();
+	console.log(int2());
+	console.log(int2());
+	console.log(int2());
+	
+	/*
+	 * 疑问: int不依然是全局变量吗？
+	 * 第3版 --在工作中，一般如何避免全局污染或冲突
+	 * 
+	 * 1、统一放在一个全局变量对象上，如jq->$
+	 * 2、每人用自己的命名空间
+	 */
+	
+	//统一放在一个全局变量对象上
+	$={};
+	$.cnt=(function(){
+		var cnt=0;
+		return function(){
+			return ++cnt;
+		}
+	})();
+	
+	console.log($.cnt());
+	console.log($.cnt());
+	console.log($.cnt());
+	
+	//自己的命名空间
+	//其实就是把自己的变量.函数都放在一个对象里
+	var hong={}
+	hong.cnt=(function(){
+		var cnt=0;
+		return function(){
+			return ++cnt;
+		}
+	})();
+	console.log(hong.cnt());
+	
+</script>

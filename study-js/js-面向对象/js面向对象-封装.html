@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>js面向对象</title>
+	</head>
+	<body>
+	</body>
+</html>
+<script>
+/**
+ * 用构造函数来创建对象
+ * 
+ */
+
+function Dog(){
+	this.leg=4;
+	this.bark=function(){
+		alert("wang wang~");
+	};
+}
+var dog=new Dog();
+//dog.bark(); // wang wang~
+
+console.log("----------------------------------------");
+/**
+ * 此处，并没有完成面向对象的“封装”
+ * 
+ * 所谓封装--就要封闭一部分，外界无法访问，
+ * 开放一部分，通过开放部分简介访问私有部分
+ */
+
+/**
+ * 用闭包完成js面向对象-私有属性
+ * 
+ */
+
+function Boy(name,gf){
+	//this.name=name;
+	this.gf=gf;
+	
+	//让属性不能外界直接访问
+	var n=name;
+	// 通过 show做借口，来读取私有属性 name
+	this.show=function(){
+		return n;
+	}
+	this.
+	
+}
+
+var b=new Boy("ljy","**");
+
+console.log(b.name+"--"+b.gf); //可以直接访问属性
+
+</script>

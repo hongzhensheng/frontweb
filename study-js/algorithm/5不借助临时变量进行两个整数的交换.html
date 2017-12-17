@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>5不借助临时变量进行两个整数的交换</title>
+	</head>
+
+	<body>
+		<p>输入 a = 2, b = 4 输出 a = 4, b =2这种问题非常巧妙，需要大家跳出惯有的思维，利用 a , b进行置换。</p>
+		<p>主要是利用 + - 去进行运算，类似 a = a + ( b - a) 实际上等同于最后 的 a = b;</p>
+	</body>
+
+</html>
+<script type="text/javascript" src="js/tools.js"></script>
+<script type="text/javascript">
+	//
+	function swap(a, b) {
+		var temp=[a,b];
+		b = b - a;
+		a = a + b;
+		b = a - b;
+		return [temp,[a,b]];
+	}
+	write(swap(10, 9));
+</script>

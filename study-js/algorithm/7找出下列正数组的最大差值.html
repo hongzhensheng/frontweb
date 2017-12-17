@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>找出下列正数组的最大差值</title>
+	</head>
+
+	<body>
+		<p>这是通过一道题目去测试对于基本的数组的最大值的查找，很明显我们知道，最大差值肯定是一个数组中最大值与最小值的差。</p>
+	</body>
+
+</html>
+<script type="text/javascript" src="js/tools.js"></script>
+<script type="text/javascript">
+	//
+	function getMaxProfix(arr) {
+		var min = arr[0];
+		var maxProfix = 0;
+		for(var i = 0, l = arr.length; i < l; i++) {
+			var current = arr[i];
+			min = Math.min(min, current);
+			var profix = Math.abs(current - min);
+			console.log("current:"+current+"; min:"+min+"; profix:"+profix);
+			maxProfix = Math.max(maxProfix,profix);
+		}
+		return maxProfix;
+	}
+
+	var arr = [80, 1, 6, 0, 50, 20];
+	write("<br>" + getMaxProfix(arr));
+</script>

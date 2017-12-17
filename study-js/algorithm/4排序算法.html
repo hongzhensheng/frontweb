@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>排序算法</title>
+	</head>
+
+	<body>
+		<p>如果抽到算法题目的话，应该大多都是比较开放的题目，不限定算法的实现，但是一定要求掌握其中的几种，所以冒泡排序，这种较为基础并且便于理解记忆的算法一定需要熟记于心。冒泡排序算法就是依次比较大小，小的的大的进行位置上的交换。</p>
+		<p>除了冒泡排序外，其实还有很多诸如 插入排序,快速排序，希尔排序等。每一种排序算法都有各自的特点。全部掌握也不需要，但是心底一定要熟悉几种算法。 比如快速排序，其效率很高，而其基本原理如图(来自wiki)：</p>
+		<p>安利大家一个学习的地址，通过动画演示算法的实现。</p>
+		<p>
+			<a href="http://math.hws.edu/eck/jsdemo/sortlab.html">http://math.hws.edu/eck/jsdemo/sortlab.html</a>
+		</p>
+	</body>
+
+</html>
+<script type="text/javascript" src="js/tools.js"></script>
+<script type="text/javascript">
+	//冒泡排序
+	function bubbleSort(arr) {
+		for(let i = 0, l = arr.length; i < l - 1; i++) {
+			for(let j = i + 1; j < l; j++) {
+				if(arr[i] > arr[j]) {
+					let temp = arr[i];
+					arr[i] = arr[j];
+					arr[j] = temp;
+				}
+			}
+		}
+		return arr;
+	}
+	//快速算法
+	function quickSort2(arr) {
+		if(arr.length <= 1) {
+			return arr;
+		}
+		let temp = arr[0],
+			leftArr = [],
+			rightArr = [];
+		for(let i = 1, l = arr.length; i < l; i++) {
+			if(arr[i] > temp) {
+				rightArr.push(arr[i]);
+			} else {
+				leftArr.push(arr[i]);
+			}
+		}
+		return [].concat(quickSort2(leftArr), [temp], quickSort2(rightArr));
+	}
+
+	var arr = [5, 8, 2, 9, 10, 1, 2, 4, 7, 6];
+	write(arr + "<br>");
+	var t1=new Date().getTime();
+	var a1=bubbleSort(arr);
+	var t2=new Date().getTime();
+	write("bubbleSort:" + a1);
+	//write("<br>bubbleSort time:" + t1+t2);
+	
+	var t3=new Date().getTime();
+	var a2=quickSort2(arr);
+	var t4=new Date().getTime();
+	write("<br>quickSort："+a2);
+	//write("<br>quickSort time："+(t3-t4));
+</script>

@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>判断一个单词是否是回文</title>
+	</head>
+	<body>
+		<p>回文是指把相同的词汇或句子，在下文中调换位置或颠倒过来，产生首尾回环的情趣，叫做回文，也叫回环。比如 mamam redivider .</p>
+	</body>
+</html>
+<script type="text/javascript">
+
+	// reverse() 方法用于颠倒数组中元素的顺序。
+	function checkPalidrom(str){
+		return str==str.split("").reverse().join("");
+	}
+	var str="redivider";
+	document.write(str+":"+checkPalidrom(str)+"<br>");
+	document.write("abcdefg"+":"+checkPalidrom("abcdefg"));
+</script>
